@@ -7,3 +7,5 @@ El trabajo trata de asegurar un servidor web Ubuntu con el siguiente software in
     Servidor SSH
     Servidor Tomcat (PHP)
     SGBD MySQL
+
+Los pasos a seguir para realizar esta tarea se encontraran en una página web.
