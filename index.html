@@ -4,9 +4,69 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
         <title>Trabajo UT7 SSF</title>
     </head>
     <body>
-        
+        <!-- header -->
+        <header>
+            <h1>
+                TRABAJO FINAL DE SISTEMAS INFORMÁTICOS
+            </h1>
+        </header>
+        <!-- Intro -->
+        <div class="div_intro">
+            <p class="introduccion">
+                En esta página web hay una amalgama de tutoriales para la puesta en marcha de un servidor web en un sistema Ubuntu server, 
+                que va desde la <strong>instalación</strong> de los diversos programas hasta la <strong>securización</strong> de estos.
+            </p>
+        </div>
+        <!-- Indice -->
+        <nav>
+            <h3>
+                Indice
+            </h3>
+            <ul class="id">
+                <li>
+                    <a href="#raid1">Configuración particionamiento RAID 1</a>
+                </li>
+                <li>
+                    <a href>Servidor SSH</a>
+                </li>
+                <li>
+                    <a href>Servidor FTP</a>
+                </li>
+                <li>
+                    <a href>Servidor Web Apache2</a>
+                </li>
+                <ul>
+                    <h3>¡Hora de securizar!</h3>
+                    <li>
+                        <a href>Securizando SSH</a>
+                    </li>
+                    <li>
+                        <a href>Securizando FTP</a>
+                    </li>
+                    <li>
+                        <a href>Securizando Servidor Web Apache2</a>
+                    </li>
+                </ul>
+            </ul>
+        </nav>
+        <!-- RAID1 -->
+        <section id="raid1">
+            <h2>
+                Configuración particionamiento RAID 1
+            </h2>
+            <p>
+                Un requisito para la realización de este ejercicio es la utilización de particionamiento RAID 1. 
+                Esta configuración, llamada también “mirroring”, es una de las más usadas.
+            </p>
+            <p>
+                Lo que estamos consiguiendo con este tipo de particionamiento es crear un almacén con información duplicada en dos discos duros. 
+                Cuando almacenamos un dato, este se duplica inmediatamente en su unidad espejo para así tener dos veces el mismo dato almacenado.
+            </p>
+            <img src="/Recursos/RAID 1/esquema_raid1.png" alt="esquema de una particion RAID 1">
+        </section>
     </body>
 </html>
