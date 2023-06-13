@@ -7,6 +7,166 @@
         <title>Trabajo UT7 SSF</title>
     </head>
     <body>
-        
+        <!-- header -->
+        <header>
+            <h1>
+                TRABAJO FINAL DE SISTEMAS INFORMÁTICOS
+            </h1>
+        </header>
+        <!-- Intro -->
+        <div class="div_intro">
+            <p>
+                En esta página web hay una amalgama de tutoriales para la puesta en marcha de un servidor web en un sistema Ubuntu server,
+                que va desde la <strong>instalación</strong> de los diversos programas hasta la <strong>securización</strong> de estos. El grupo se ha organizado
+                haciendo uso de <!-- ¿cómo se llamaba la metodología? -->
+            </p>
+            <br>
+            <h3>
+                Programas necesarios:
+            </h3>
+            <div class="contenedor_logos">
+                <div class="virtualbox_logo">
+                    <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">
+                        <img src="/Recursos/LOGOS/pngegg.png" alt="logo de virtual box" width="250">
+                    </a>
+                    <p>Virtual Box</p>
+                </div>
+                <div class="ubuntu_logo">
+                    <a href="https://ubuntu.com/download/server" target="_blank">
+                        <img src="/Recursos/LOGOS/ubuntu-logo.png" alt="logo de ubuntu" width="170"/>
+                    </a>
+                    <p style="margin-top: 17px;">
+                        Ubuntu server
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Indice -->
+        <nav>
+            <h3 style="color: var(--morado);">
+                Indice
+            </h3>
+            <ul class="id">
+                <li>
+                    <a href="#raid1">Configuración particionamiento RAID 1</a>
+                </li>
+                <li>
+                    <a href>Servidor SSH</a>
+                </li>
+                <li>
+                    <a href>Servidor FTP</a>
+                </li>
+                <li>
+                    <a href>Servidor Web Apache2</a>
+                </li>
+                <ul>
+                    <h3 style="color: var(--morado)">¡Hora de securizar!</h3>
+                    <li>
+                        <a href>Securizando SSH</a>
+                    </li>
+                    <li>
+                        <a href>Securizando FTP</a>
+                    </li>
+                    <li>
+                        <a href>Securizando Servidor Web Apache2</a>
+                    </li>
+                </ul>
+            </ul>
+        </nav>
+        <!-- RAID1 -->
+        <section id="raid1">
+            <h2>
+                Configuración particionamiento RAID 1
+            </h2>
+            <div class="tutorial_raid1">
+                <p>
+                    Un requisito para la realización de este ejercicio es la utilización de particionamiento RAID 1.
+                    Esta configuración, llamada también “mirroring”, es una de las más usadas.
+                </p>
+                <p>
+                    Lo que estamos consiguiendo con este tipo de particionamiento es crear un almacén con información duplicada en dos discos duros.
+                    Cuando almacenamos un dato, este se duplica inmediatamente en su unidad espejo para así tener dos veces el mismo dato almacenado.
+                </p>
+                <img src="/Recursos/RAID 1/esquema_raid1.png" alt="esquema de una particion RAID 1">
+                <p>
+                    Para poder realizar esto en nuestro servidor ubuntu, primero debemos crear el segundo disco duro en la misma máquina virtual:
+                </p>
+                <img src="/Recursos/RAID 1/añadir_discos_duros.png" alt="añadir discos duros">
+                <p>
+                    Nos dirigimos a la configuración de la máquina y nos dirigimos a la ventana de “almacenamiento” y hacemos clic en “añadir disco duro”.
+                </p>
+                <img src="/Recursos/RAID 1/icono_crear_discoduro.png" alt="icono de crear discos duros">
+                <p>
+                    Le daremos al icono de “crear”. Esto nos permitirá crear un nuevo disco duro.
+                </p>
+                <p>
+                    Creamos dicho como siempre hemos estado haciendo en las demás actividades. Le daremos la misma capacidad (25 GB)
+                    y será un disco duro dinámico; también crearemos otro de 10 GB. En la siguiente imagen veremos todos los discos duros.
+                </p>
+                <img src="/Recursos/RAID 1/discos_duros_creados.png" alt="imagen donde se ven esos discos duros creados">
+                <p>
+                    Con ambos discos duros listos, procederemos a instalar el servidor y configurar dicha partición como RAID 1.
+                </p>
+                <p>
+                    Tras avanzar entre las configuraciones previas, nos detendremos concretamente en este apartado.
+                </p>
+                <img src="/Recursos/RAID 1/custom_storage_layout.png" alt="seleccion del disco duro">
+                <p>
+                    Aquí, seleccionamos <strong>“custom storage layout”</strong> donde podremos crear particiones,
+                    seleccionar el disco donde queramos instalar el sistema operativo y, lo que nos importa, configurar una partición RAID 1.
+                </p>
+                <p>
+                    Como podemos observar, podemos ver los tres discos duros disponibles para el servidor. Seleccionamos el de 10GB, pues este es el que ha
+                    sido creado específicamente para esta tarea.
+                </p>
+                <p>
+                    Le damos a enter en el apartado que pone <strong>“espacio disponible”</strong>.
+                    Le daremos a <strong>“add GPT partition”</strong>. Esta opción crea una partición en dicho disco que usaremos como partición RAID 1.
+                </p>
+                <img src="/Recursos/RAID 1/add_gpt_partition.png" alt="añadir particion gpt">
+                <br>
+                <img src="/Recursos/RAID 1/dar_formato_gpt_partition.png" alt="dar formato gpt a la particion">
+                <p>
+                    Size será el tamaño máximo disponible (9.998GB), el formato ext4 y mount será el sistema (/). Una vez configurado, le damos a
+                    <strong>“crear”</strong>.
+                </p>
+                <img src="/Recursos/RAID 1/opción_raid1.png" alt="">
+                <p>
+                    Ahora, daremos enter en <strong>“create software RAID (md)”</strong>
+                </p>
+                <img src="/Recursos/RAID 1/software_raid1.png" alt="">
+                <p>
+                    Le dejaremos el mismo nombre (md0). RAID Level será el nivel 1, tal y como nos pide el ejercicio, y activamos los dos dispositivos
+                    (los dos discos duros).
+                </p>
+                <p>
+                    Debemos tener en cuenta que para poder configurar este tipo de partición debemos tener 2 dispositivos activos.
+                    <strong style="color: red;">Si no marcamos ambos, nos saltará un error. Ahora sí, le damos a “crear”</strong>.
+                </p>
+                <p>
+                    Para ponerlo a punto y listo, debemos hacer que en esta se monte y funcione como el <strong>“/home”</strong> del sistema.
+                     Para ello, seleccionamos la partición RAID 1 y luego le daremos enter a <strong>“add GPT Partition”</strong>.
+                </p>
+                <img src="/Recursos/RAID 1/md0_partition.png" alt="">
+                <p>
+                    Cambiaremos el mount y lo pondremos a <strong>“/home”</strong>.
+                </p>
+                <img src="/Recursos/RAID 1/directorio_home.png" alt="">
+                <br>
+                <img src="/Recursos/RAID 1/resumen_montaje.png" alt="">
+                <p>
+                    En este resumen podremos ver ambas particiones. Donde hemos configurado el RAID 1 y la partición para el disco local.
+                </p>
+                <p>
+                    Al darle a aceptar nos saltará este mensaje de advertencia donde nos dirá que se van a formatear los  diferentes discos.
+                    Le daremos a <strong>“continuar”</strong>.
+                </p>
+                <img src="/Recursos/RAID 1/formateo_discos.png" alt="">
+            </div>
+        </section>
+        <!-- Servidor SSH -->
+        <section id="servidor_ssh">
+
+        </section>
     </body>
 </html>

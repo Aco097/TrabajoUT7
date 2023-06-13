@@ -1,1 +1,75 @@
-    
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dorado: #FDB927;
+    --morado: #542583;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    text-align: center;
+    background-color: var(--dorado);
+    padding: 15px;
+}
+
+h1 {
+    color: var(--morado);
+}
+
+.div_intro {
+   text-align: center;
+   font-size: 1.25em;
+   padding: 25px;
+}
+
+.contenedor_logos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 7rem;
+}
+
+.virtualbox_logo,
+.ubuntu_logo {
+    margin-top: 15px;
+}
+
+nav {
+    text-align: center;
+    margin: 10px;
+    line-height: 25px;
+    border: 1px solid var(--dorado);
+    border-radius: 15px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: var(--dorado)
+}
+
+ul {
+    list-style: none;
+}
+
+#raid1 {
+    text-align: center;
+    padding: 10px;
+}
+#raid1 p,
+#raid1 img {
+    margin: 7px;
+}
