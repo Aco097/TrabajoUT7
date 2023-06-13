@@ -8,12 +8,14 @@
         <title>Trabajo UT7 SSF</title>
     </head>
     <body>
+
         <!-- header -->
         <header>
             <h1>
                 TRABAJO FINAL DE SISTEMAS INFORMÁTICOS
             </h1>
         </header>
+
         <!-- Intro -->
         <div class="div_intro">
             <p>
@@ -28,7 +30,7 @@
             <div class="contenedor_logos">
                 <div class="virtualbox_logo">
                     <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">
-                        <img src="/Recursos/LOGOS/pngegg.png" alt="logo de virtual box" width="250">
+                        <img src="/Recursos/LOGOS/Virtualbox_logo.png" alt="logo de virtual box" width="190">
                     </a>
                     <p>Virtual Box</p>
                 </div>
@@ -42,43 +44,48 @@
                 </div>
             </div>
         </div>
+
         <!-- Indice -->
         <nav>
             <h3 style="color: var(--morado);">
                 Indice
+            </h3>
+            <h3>
+                Puesta a punto del servidor
             </h3>
             <ul class="id">
                 <li>
                     <a href="#raid1">Configuración particionamiento RAID 1</a>
                 </li>
                 <li>
-                    <a href>Servidor SSH</a>
+                    <a href="#servidor_ssh">Servidor SSH</a>
                 </li>
                 <li>
-                    <a href>Servidor FTP</a>
+                    <a href="#servidor_FTP">Servidor FTP</a>
                 </li>
                 <li>
-                    <a href>Servidor Web Apache2</a>
+                    <a href="#servidor_apache2">Servidor Web Apache2</a>
                 </li>
-                <ul>
-                    <h3 style="color: var(--morado)">¡Hora de securizar!</h3>
-                    <li>
-                        <a href>Securizando SSH</a>
-                    </li>
-                    <li>
-                        <a href>Securizando FTP</a>
-                    </li>
-                    <li>
-                        <a href>Securizando Servidor Web Apache2</a>
-                    </li>
-                </ul>
+            </ul>
+            <h3 style="color: var(--morado)">¡Hora de securizar!</h3>
+            <ul>
+                <li>
+                    <a href="#">Securizando SSH</a>
+                </li>
+                <li>
+                    <a href="#">Securizando FTP</a>
+                </li>
+                <li>
+                    <a href="#">Securizando Servidor Web Apache2</a>
+                </li>
             </ul>
         </nav>
+
         <!-- RAID1 -->
         <section id="raid1">
-            <h2>
+            <h3>
                 Configuración particionamiento RAID 1
-            </h2>
+            </h3>
             <div class="tutorial_raid1">
                 <p>
                     Un requisito para la realización de este ejercicio es la utilización de particionamiento RAID 1.
@@ -88,15 +95,15 @@
                     Lo que estamos consiguiendo con este tipo de particionamiento es crear un almacén con información duplicada en dos discos duros.
                     Cuando almacenamos un dato, este se duplica inmediatamente en su unidad espejo para así tener dos veces el mismo dato almacenado.
                 </p>
-                <img src="/Recursos/RAID 1/esquema_raid1.png" alt="esquema de una particion RAID 1">
+                <img src="/Recursos/RAID%201/esquema_raid1.png" alt="esquema de una particion RAID 1">
                 <p>
                     Para poder realizar esto en nuestro servidor ubuntu, primero debemos crear el segundo disco duro en la misma máquina virtual:
                 </p>
-                <img src="/Recursos/RAID 1/añadir_discos_duros.png" alt="añadir discos duros">
+                <img src="/Recursos/RAID%201/añadir_discos_duros.png" alt="añadir discos duros">
                 <p>
                     Nos dirigimos a la configuración de la máquina y nos dirigimos a la ventana de “almacenamiento” y hacemos clic en “añadir disco duro”.
                 </p>
-                <img src="/Recursos/RAID 1/icono_crear_discoduro.png" alt="icono de crear discos duros">
+                <img src="/Recursos/RAID%201/icono_crear_discoduro.png" alt="icono de crear discos duros">
                 <p>
                     Le daremos al icono de “crear”. Esto nos permitirá crear un nuevo disco duro.
                 </p>
@@ -104,14 +111,14 @@
                     Creamos dicho como siempre hemos estado haciendo en las demás actividades. Le daremos la misma capacidad (25 GB)
                     y será un disco duro dinámico; también crearemos otro de 10 GB. En la siguiente imagen veremos todos los discos duros.
                 </p>
-                <img src="/Recursos/RAID 1/discos_duros_creados.png" alt="imagen donde se ven esos discos duros creados">
+                <img src="/Recursos/RAID%201/discos_duros_creados.png" alt="imagen donde se ven esos discos duros creados">
                 <p>
                     Con ambos discos duros listos, procederemos a instalar el servidor y configurar dicha partición como RAID 1.
                 </p>
                 <p>
                     Tras avanzar entre las configuraciones previas, nos detendremos concretamente en este apartado.
                 </p>
-                <img src="/Recursos/RAID 1/custom_storage_layout.png" alt="seleccion del disco duro">
+                <img src="/Recursos/RAID%201/custom_storage_layout.png" alt="seleccion del disco duro">
                 <p>
                     Aquí, seleccionamos <strong>“custom storage layout”</strong> donde podremos crear particiones,
                     seleccionar el disco donde queramos instalar el sistema operativo y, lo que nos importa, configurar una partición RAID 1.
@@ -124,37 +131,37 @@
                     Le damos a enter en el apartado que pone <strong>“espacio disponible”</strong>.
                     Le daremos a <strong>“add GPT partition”</strong>. Esta opción crea una partición en dicho disco que usaremos como partición RAID 1.
                 </p>
-                <img src="/Recursos/RAID 1/add_gpt_partition.png" alt="añadir particion gpt">
+                <img src="/Recursos/RAID%201/add_gpt_partition.png" alt="añadir particion gpt">
                 <br>
-                <img src="/Recursos/RAID 1/dar_formato_gpt_partition.png" alt="dar formato gpt a la particion">
+                <img src="/Recursos/RAID%201/dar_formato_gpt_partition.png" alt="dar formato gpt a la particion">
                 <p>
                     Size será el tamaño máximo disponible (9.998GB), el formato ext4 y mount será el sistema (/). Una vez configurado, le damos a
                     <strong>“crear”</strong>.
                 </p>
-                <img src="/Recursos/RAID 1/opción_raid1.png" alt="">
+                <img src="/Recursos/RAID%201/opción_raid1.png" alt="opcion del menu raid1">
                 <p>
                     Ahora, daremos enter en <strong>“create software RAID (md)”</strong>
                 </p>
-                <img src="/Recursos/RAID 1/software_raid1.png" alt="">
+                <img src="/Recursos/RAID%201/software_raid1.png" alt="">
                 <p>
                     Le dejaremos el mismo nombre (md0). RAID Level será el nivel 1, tal y como nos pide el ejercicio, y activamos los dos dispositivos
                     (los dos discos duros).
                 </p>
                 <p>
                     Debemos tener en cuenta que para poder configurar este tipo de partición debemos tener 2 dispositivos activos.
-                    <strong style="color: red;">Si no marcamos ambos, nos saltará un error. Ahora sí, le damos a “crear”</strong>.
+                    <strong style="color: red !important;">Si no marcamos ambos, nos saltará un error. Ahora sí, le damos a “crear”</strong>.
                 </p>
                 <p>
                     Para ponerlo a punto y listo, debemos hacer que en esta se monte y funcione como el <strong>“/home”</strong> del sistema.
                      Para ello, seleccionamos la partición RAID 1 y luego le daremos enter a <strong>“add GPT Partition”</strong>.
                 </p>
-                <img src="/Recursos/RAID 1/md0_partition.png" alt="">
+                <img src="/Recursos/RAID%201/md0_partition.png" alt="">
                 <p>
                     Cambiaremos el mount y lo pondremos a <strong>“/home”</strong>.
                 </p>
-                <img src="/Recursos/RAID 1/directorio_home.png" alt="">
+                <img src="/Recursos/RAID%201/directorio_home.png" alt="">
                 <br>
-                <img src="/Recursos/RAID 1/resumen_montaje.png" alt="">
+                <img src="/Recursos/RAID%201/resumen_montaje.png" alt="">
                 <p>
                     En este resumen podremos ver ambas particiones. Donde hemos configurado el RAID 1 y la partición para el disco local.
                 </p>
@@ -162,12 +169,136 @@
                     Al darle a aceptar nos saltará este mensaje de advertencia donde nos dirá que se van a formatear los  diferentes discos.
                     Le daremos a <strong>“continuar”</strong>.
                 </p>
-                <img src="/Recursos/RAID 1/formateo_discos.png" alt="">
+                <img src="/Recursos/RAID%201/formateo_discos.png" alt="">
             </div>
         </section>
+
         <!-- Servidor SSH -->
         <section id="servidor_ssh">
+            <h3>
+                Servidor SSH
+            </h3>
+            <div class="tutorial_ssh">
+                <p>
+                    Durante la instalación del servidor, Linux Ubuntu nos facilita la instalación por defecto de un servidor SSH. 
+                    Obviamente, accederemos a que lo instale de manera predeterminada.
+                </p>
+                <img src="/Recursos/SERVIDOR%20SSH/instalacion_ssh.png" alt="">
+                <p>
+                    Cuando terminemos de instalar el sistema operativo ubuntu server usaremos el comando para verificar que el SSH está instalado y 
+                    operativo usando el comando <strong>“systemctl status ssh”</strong> .
+                </p>
+                <img src="/Recursos/SERVIDOR%20SSH/status_ssh_primero.png" alt="">
+                <p>
+                    Ahora, tenemos que asignarle una IP a este servidor SSH. Sabremos la IP de nuestra máquina haciendo uso del comando <strong>“ip a”</strong>.
+                </p>
+                <img src="/Recursos/SERVIDOR%20SSH/ssh_ip_a.png" alt="">
+                <p>
+                    Luego, usamos el comando <strong>“ssh [nombre_usuario]@ip”</strong>. 
+                </p>
+                <img src="Recursos/SERVIDOR%20SSH/conexion_a_ssh.png" alt="">
+                <p>
+                    Podemos probar si nos podemos conectar desde otra máquina remota haciendo uso del comando 
+                    <strong>“ssh [nombre_usuario]@[ip_máquinaremota] -p [puerto]”</strong>. Por defecto es el puerto 22, pero como más adelante
+                    <a href="#">(click para ir al tutorial)</a> en este trabajo hemos cambiado el puerto por seguridad <strong>(42069)</strong> pondremos esta secuencia de 
+                    números.
+                </p>
+                <img src="/Recursos/SERVIDOR%20SSH/ssh_con_puerto.png" alt="">
+            </div>
+        </section>
 
+        <!-- Servidor FTP -->
+        <section id="servidor_FTP">
+            <h3>
+                Servidor FTP
+            </h3>
+            <div class="tutorial_ftp">
+                <p>
+                    Para instalar el servidor FTP hacemos uso del comando <strong>“sudo apt install vsftpd”</strong>. 
+                </p>
+                <img src="/Recursos/SERVIDOR%20FTP/instalacion_ftp.png" alt="">
+                <p>
+                    Para comprobar el estado y asegurarnos que está instalado y activo usamos el comando <strong>“systemctl status vsftpd”</strong>.
+                </p>
+                <img src="/Recursos/SERVIDOR%20FTP/status_ftp_instalacion.png" alt="">
+                <p>
+                    Tras hacer seguro el servidor FTP  <a href="#">(click para ir al tutorial)</a> vamos a acceder a este de la siguiente manera. 
+                    Primero tenemos que ver la ip de nuestro servidor, para ello usaremos el comando <strong>“ip a”</strong> que nos mostrará la información que deseamos.
+                </p>
+                <img src="/Recursos/SERVIDOR%20FTP/ftp_ip_a.png" alt="ftp ip">
+                <p>
+                    Esta ip la usaremos para conectarnos al servidor FTP desde el programa FileZilla. Una vez el programa abierto, le daremos al icono de 
+                    <strong>“Abrir el Gestor de Sitios”</strong>.
+                </p>
+                <img src="/Recursos/SERVIDOR%20FTP/filezilla_gestor.png" alt="icono de gestor de sitio del filezilla">
+                <p>
+                    Crearemos un nuevo sitio. En la pestaña de general, el cual se habilitará para la edición una vez generemos un nuevo sitio, cual llamaremos “Trabajo UT7 SSF”, 
+                    debemos poner la IP de nuestro servidor, además del usuario y contraseña (que son los mismos que usamos para conectarnos vía SSH).
+                </p>
+                <img src="/Recursos/SERVIDOR%20FTP/filezilla_nuevo_sitio.png" alt="parametros filezilla" height="294">
+                <img src="/Recursos/SERVIDOR%20FTP/usuarion_contraseña.png" alt="usuario y contraseña filezilla" width="570">
+                <img src="/Recursos/SERVIDOR%20FTP/server_desconocido.png" alt="mensaje de advertencia de servidor desconocido" width="570">
+                <p>
+                    Al terminar de poner los datos, daremos clic en aceptar y se nos abrirá una ventana nueva preguntando que si confiamos en dicho servidor. 
+                    Daremos clic y…
+                </p>
+                <img src="/Recursos/SERVIDOR%20FTP/FILEZILLA_CONECTADO_LETSGO.png" alt="FileZilla conectado" width="555">
+                <p>
+                    Si todo está bien, nos aparecerá el archivo de datos de nuestro servidor ubuntu server. Si es así, enhorabuena: 
+                    <strong style="color: var(--dorado)">¡Estás conectado!</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- Servidor Web Apache2 -->
+        <section id="servidor_apache2">
+            <h3>
+                Servidor web Apache2
+            </h3>
+            <div class="tutorial_apache2">
+                <p>
+                    Para instalar el servidor web Apache haremos uso del comando <strong>“sudo apt install apache2”</strong>.
+                </p>
+                <img src="/Recursos/SERVIDOR WEB APACHE 2/instalar_apache2.png" alt="instalacion apache2" width="750">
+                <img src="/Recursos/SERVIDOR WEB APACHE 2/progreso_apache2.png" alt="barra de progrecion de instalacion" width="750">
+                <p>
+                    Instalado, es ritual comprobar el estado y asegurarnos que está activo. Usamos el comando <strong>“systemctl status apache2”</strong>.
+                </p>
+                <img src="/Recursos/SERVIDOR WEB APACHE 2/estatus_apache2.png" alt="estado apache2">
+                <p>
+                    Abriremos el fichero de configuración (no sin antes realizar una copia de seguridad del archivo original): 
+                    <strong>“sudo cp /etc/apache2/ports.conf /etc/apache2/ports.conf.original”</strong>.
+                    <br style="margin: 10px;">
+                    Copia hecha, vamos a cambiar la configuración para permitir que el servidor Apache2 escuche el tráfico web en otros puertos que no sean los puertos 
+                    web estándar, debemos agregar una nueva declaración que contenga el nuevo puerto para futuros enlaces. Para ello, usamos el comando: 
+                    <strong>“sudo vi /etc/apache2/ports.conf”</strong>.
+                </p>
+                <p>
+                    Configuraremos el servidor Apache para escuchar las conexiones de nuestro puerto 42069.
+                </p>
+                <img src="/Recursos/SERVIDOR WEB APACHE 2/configuracion_puerto_apache2.png" alt="configuracion puerto apache2">
+                <p>
+                    Ahora reiniciamos el servicio apache2 con el siguiente comando: <strong>“sudo service apache2 restart” </strong>
+                    y comprobamos el estado por si funciona correctamente.
+                </p>
+                <img src="/Recursos/SERVIDOR WEB APACHE 2/status_apache2.png" alt="estado del servidor apache2 tras puertos">
+                <p>
+                    Ahora, si todo está correcto, en el navegador de nuestra máquina cliente, si ingresamos en el buscador la ip del servidor y el puerto que hemos 
+                    puesto nos aparecerá la página de Apache2 que nos indica que todo funciona correctamente.
+                </p>
+                <img src="/Recursos/SERVIDOR WEB APACHE 2/apache2_finalizado.png" alt="pagina web estandar de apache2" width="500">
+            </div>
+        </section>
+
+        <!-- Securizar los diferentes servicios -->
+        <!-- Securizar SSH -->          
+        <h2>
+            Es momento de asegurar el servidor.        
+        </h2>
+        <section id="securizar_ssh">
+            <h3>
+                Securizando SSH
+            </h3>
         </section>
     </body>
 </html>

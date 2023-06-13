@@ -11,20 +11,23 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.95em;
+    text-align: center;
 }
 
 header {
     text-align: center;
     background-color: var(--dorado);
     padding: 15px;
+    border-bottom: 2px solid var(--morado);
 }
 
-h1 {
+h1, h2, h3 {
     color: var(--morado);
+    text-align: center;
 }
 
 .div_intro {
-   text-align: center;
    font-size: 1.25em;
    padding: 25px;
 }
@@ -42,11 +45,11 @@ h1 {
 }
 
 nav {
-    text-align: center;
-    margin: 10px;
-    line-height: 25px;
+    line-height: 30px;
     border: 1px solid var(--dorado);
-    border-radius: 15px;
+    border-radius: 25px;
+    width: 50rem;
+    margin: 0 auto 10px;
 }
 
 a {
@@ -65,11 +68,41 @@ ul {
     list-style: none;
 }
 
-#raid1 {
-    text-align: center;
-    padding: 10px;
+#raid1,
+#servidor_ssh,
+#servidor_FTP,
+#servidor_apache2 {
+    padding: 20px;
+    border: 1px solid var(--dorado);
+    border-radius: 25px;
+    width: 50rem;
+    margin: 0 auto 10px;
 }
+
 #raid1 p,
 #raid1 img {
     margin: 7px;
+}
+
+#servidor_ssh p,
+#servidor_ssh img {
+    margin: 7px;
+}
+
+#servidor_FTP p,
+#servidor_FTP img {
+    margin: 7px;
+}
+
+#servidor_apache2 p,
+#servidor_apache2 img {
+    margin: 7px;
+}
+
+strong {
+    color: var(--morado);
+}
+
+div p {
+    text-align: justify;
 }
