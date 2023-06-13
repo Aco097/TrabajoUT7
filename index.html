@@ -8,14 +8,12 @@
         <title>Trabajo UT7 SSF</title>
     </head>
     <body>
-
         <!-- header -->
         <header>
             <h1>
                 TRABAJO FINAL DE SISTEMAS INFORMÁTICOS
             </h1>
         </header>
-
         <!-- Intro -->
         <div class="div_intro">
             <p>
@@ -44,7 +42,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Indice -->
         <nav>
             <h3 style="color: var(--morado);">
@@ -70,17 +67,16 @@
             <h3 style="color: var(--morado)">¡Hora de securizar!</h3>
             <ul>
                 <li>
-                    <a href="#">Securizando SSH</a>
+                    <a href="#securizar_ssh">Securizando SSH</a>
                 </li>
                 <li>
-                    <a href="#">Securizando FTP</a>
+                    <a href="#securizar_ftp">Securizando FTP</a>
                 </li>
                 <li>
                     <a href="#">Securizando Servidor Web Apache2</a>
                 </li>
             </ul>
         </nav>
-
         <!-- RAID1 -->
         <section id="raid1">
             <h3>
@@ -172,7 +168,6 @@
                 <img src="/Recursos/RAID%201/formateo_discos.png" alt="">
             </div>
         </section>
-
         <!-- Servidor SSH -->
         <section id="servidor_ssh">
             <h3>
@@ -200,13 +195,12 @@
                 <p>
                     Podemos probar si nos podemos conectar desde otra máquina remota haciendo uso del comando 
                     <strong>“ssh [nombre_usuario]@[ip_máquinaremota] -p [puerto]”</strong>. Por defecto es el puerto 22, pero como más adelante
-                    <a href="#">(click para ir al tutorial)</a> en este trabajo hemos cambiado el puerto por seguridad <strong>(42069)</strong> pondremos esta secuencia de 
+                    <a href="#securizar_ssh">(click para ir al tutorial)</a> en este trabajo hemos cambiado el puerto por seguridad <strong>(42069)</strong> pondremos esta secuencia de 
                     números.
                 </p>
                 <img src="/Recursos/SERVIDOR%20SSH/ssh_con_puerto.png" alt="">
             </div>
         </section>
-
         <!-- Servidor FTP -->
         <section id="servidor_FTP">
             <h3>
@@ -222,7 +216,7 @@
                 </p>
                 <img src="/Recursos/SERVIDOR%20FTP/status_ftp_instalacion.png" alt="">
                 <p>
-                    Tras hacer seguro el servidor FTP  <a href="#">(click para ir al tutorial)</a> vamos a acceder a este de la siguiente manera. 
+                    Tras hacer seguro el servidor FTP  <a href="#securizar_ftp">(click para ir al tutorial)</a> vamos a acceder a este de la siguiente manera. 
                     Primero tenemos que ver la ip de nuestro servidor, para ello usaremos el comando <strong>“ip a”</strong> que nos mostrará la información que deseamos.
                 </p>
                 <img src="/Recursos/SERVIDOR%20FTP/ftp_ip_a.png" alt="ftp ip">
@@ -249,7 +243,6 @@
                 </p>
             </div>
         </section>
-
         <!-- Servidor Web Apache2 -->
         <section id="servidor_apache2">
             <h3>
@@ -259,12 +252,12 @@
                 <p>
                     Para instalar el servidor web Apache haremos uso del comando <strong>“sudo apt install apache2”</strong>.
                 </p>
-                <img src="/Recursos/SERVIDOR WEB APACHE 2/instalar_apache2.png" alt="instalacion apache2" width="750">
-                <img src="/Recursos/SERVIDOR WEB APACHE 2/progreso_apache2.png" alt="barra de progrecion de instalacion" width="750">
+                <img src="/Recursos/SERVIDOR%20WEB%20APACHE%202/instalar_apache2.png" alt="instalacion apache2" width="750">
+                <img src="/Recursos/SERVIDOR%20WEB%20APACHE%202/progreso_apache2.png" alt="barra de progrecion de instalacion" width="750">
                 <p>
                     Instalado, es ritual comprobar el estado y asegurarnos que está activo. Usamos el comando <strong>“systemctl status apache2”</strong>.
                 </p>
-                <img src="/Recursos/SERVIDOR WEB APACHE 2/estatus_apache2.png" alt="estado apache2">
+                <img src="/Recursos/SERVIDOR%20WEB%20APACHE%202/estatus_apache2.png" alt="estado apache2">
                 <p>
                     Abriremos el fichero de configuración (no sin antes realizar una copia de seguridad del archivo original): 
                     <strong>“sudo cp /etc/apache2/ports.conf /etc/apache2/ports.conf.original”</strong>.
@@ -276,22 +269,21 @@
                 <p>
                     Configuraremos el servidor Apache para escuchar las conexiones de nuestro puerto 42069.
                 </p>
-                <img src="/Recursos/SERVIDOR WEB APACHE 2/configuracion_puerto_apache2.png" alt="configuracion puerto apache2">
+                <img src="/Recursos/SERVIDOR%20WEB%20APACHE%202/configuracion_puerto_apache2.png" alt="configuracion puerto apache2">
                 <p>
                     Ahora reiniciamos el servicio apache2 con el siguiente comando: <strong>“sudo service apache2 restart” </strong>
                     y comprobamos el estado por si funciona correctamente.
                 </p>
-                <img src="/Recursos/SERVIDOR WEB APACHE 2/status_apache2.png" alt="estado del servidor apache2 tras puertos">
+                <img src="/Recursos/SERVIDOR%20WEB%20APACHE%202/status_apache2.png" alt="estado del servidor apache2 tras puertos">
                 <p>
                     Ahora, si todo está correcto, en el navegador de nuestra máquina cliente, si ingresamos en el buscador la ip del servidor y el puerto que hemos 
                     puesto nos aparecerá la página de Apache2 que nos indica que todo funciona correctamente.
                 </p>
-                <img src="/Recursos/SERVIDOR WEB APACHE 2/apache2_finalizado.png" alt="pagina web estandar de apache2" width="500">
+                <img src="/Recursos/SERVIDOR%20WEB%20APACH%202/apache2_finalizado.png" alt="pagina web estandar de apache2" width="500">
             </div>
         </section>
-
         <!-- Securizar los diferentes servicios -->
-        <!-- Securizar SSH -->          
+        <!-- Securizando SSH -->          
         <h2>
             Es momento de asegurar el servidor.        
         </h2>
@@ -299,6 +291,251 @@
             <h3>
                 Securizando SSH
             </h3>
+            <div class="securizando_ssh">
+                <p>
+                    Debemos evitar que nuestro servidor sea una máquina de generar spam debemos hacerlo seguro.
+                    Debemos securizar para que no haya problemas a futuro con hackers oportunistas que vean una brecha de seguridad 
+                    y se cuelen en nuestro servidor.
+                    Antes que nada, vamos a realizar una copia de seguridad del archivo de configuración del SSH para restaurarlo en el hipotético caso de que salga mal. 
+                    Realizaremos la copia haciendo uso del comando <strong>“sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak”</strong>.
+                </p>
+                <img src="/Recursos/SECURIZAR%20SSH/copia_seguridad_ssh.png" alt="copia de seguridad archivo conf">
+                <p>
+                    Antes de editar el archivo, podemos revisar las opciones que están establecidas actualmente con el comando <strong>“sudo sshd -T”</strong>. 
+                    Esto ejecutará el servidor OpenSSH en modo prueba ampliado, lo que validará el archivo de configuración completo e imprimirá los valores 
+                    con configuración efectivos.
+                </p>
+                <p>
+                    Hecha la copia de seguridad, vamos a configurar el archivo <strong>“sudo nano etc/ssh/sshd_config</strong>”.
+                    Se nos abrirá el siguiente bloque de texto.
+                </p>
+                <img src="/Recursos/SECURIZAR%20SSH/ssh_config_sin_tocar.png" alt="menu config sin alterar">
+                <div class="permitroot_no">
+                    <div class="img_permit">
+                        <img src="/Recursos/SECURIZAR%20SSH/permitrootlogin_no.png" alt="permit root login no">
+                    </div>
+                    <div class="texto_permit">
+                        <p>
+                            Primero, deshabilitamos el inicio de sesión a través del SSH como el usuario root estableciendo la siguiente opción:
+                            <strong>“PermitRootLogin no”</strong>.
+                        </p>
+                    </div>
+                </div>
+                <p>
+                    Esto evitará que un atacante inicie sesión directamente como usuario root. Además, alienta las buenas prácticas de seguridad operativas, 
+                    como operar como usuario sin privilegios y usar “sudo” para escalar privilegios solo cuando sea necesario.
+                </p>
+                <p>
+                    A continuación, podemos limitar el nº máximo de intentos de autenticación para una sesión de inicio de sesión configurando el apartado de 
+                    <strong>MaxAuthTries</strong>. Para este ejercicio, lo limitaremos en 3 intentos.
+                </p>
+                <p>
+                    Otra cosa que podemos hacer es cambiar el LoginGraceTime para que solo se tengan 20 segundos para conectarse. 
+                    También, configuramos el número de dispositivos conectados de manera simultánea estableciendo este a 3, que es el número de integrantes del grupo, 
+                    esto se hace cambiando la configuración de MaxSessions. La configuración se quedaría así:
+                </p>
+                <img src="/Recursos/SECURIZAR%20SSH/opciones_varias.png" alt="opciones cambiadas">
+                <p>
+                    Pero no hemos acabado todavía. Estableceremos otro puerto que no sea el 22 (que es el número por defecto), por ejemplo, pondremos el puerto 42069.
+                </p>
+                <img src="/Recursos/SECURIZAR%20SSH/ssh_puerto_42069.png" alt="puerto 42069">
+                <p>
+                    Para más seguridad, añadiremos al archivo <strong>sshd_config</strong> la siguiente línea. Esto sirve para configurar los algoritmos de intercambios de claves:
+                    <strong>
+                        “KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256”
+                    </strong> 
+                </p>
+                <p>
+                    Ahora, vamos a desmarcar las siguientes líneas que nos aparecen en color azul:
+                </p>
+                <img src="Recursos/SECURIZAR%20SSH/Hotskey.png" alt="se cambio la configuracion hotskey">
+                <p>
+                    Esto crea nuevas claves rsa dsa.
+                </p>
+                <p>
+                    Saldremos de la configuración del ssh guardando los cambios cometidos.
+                    Continuamos securizando nuestro servidor SSH haciendo uso del comando:
+                    <strong>“sudo ssh-keygen -f /etc/ssh/ssh_host_rsa_key -t rsa -b 4096”</strong>
+                    Con este comando generamos una nueva clave RSA.
+                </p>
+                <img src="/Recursos/SECURIZAR%20SSH/clave_rsa.png" alt="clave rsa">
+                <p>
+                    Seguiremos, ahora, generando nuevas claves <strong>ECDSA</strong> y <strong>ED25519</strong> tendremos que utilizar los siguientes comandos:
+                    <strong>“ssh-keygen -f /etc/ssh/ssh_host_ecdsa_key -t ecdsa -b 521”</strong>
+                </p>
+                <img src="/Recursos/SECURIZAR SSH/clave_ecdsa.png" alt="clave ecdsa">
+                <p>
+                    <strong>“ssh-keygen -f /etc/ssh/ssh_host_ed25519_key -t ed25519”</strong>
+                </p>
+                <img src="/Recursos/SECURIZAR SSH/clave_ed25519.png" alt="clave ed25519">
+                <p>
+                    Existen, además, diferentes métodos de autenticación disponibles en el servidor. Existen dos métodos principalmente: usuario y contraseña 
+                    y también claves criptográficas. No obstante, si queremos dotar al sistema de una seguridad adicional, podemos combinar estas autenticaciones 
+                    con claves generadas por aplicaciones como Google Authenticator o Latch OTP.
+                </p>
+                <div class="contenedor_logos">
+                    <div class="google_authenticator">
+                        <img src="/Recursos/LOGOS/logo_google_autheticator.png" alt="logo del google Authenticator" width="150">
+                        <p>
+                            Google Authenticator
+                        </p>
+                    </div>
+                    <div class="latch_otp">
+                        <img src="/Recursos/LOGOS/latch_otp.png" alt="logo del latch otp" width="300" height="151">
+                        <p>
+                            Latch OTP
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Securizando FTP -->
+        <section id="securizar_ftp">
+            <h3>
+                Securizando FTP
+            </h3>
+            <div class="securizando_ftp">
+                <p>
+                    Es buena práctica hacer una <strong style="color: black;">copia de seguridad</strong> de la configuración original, por si acaso, no vaya a ser que 
+                    tengamos una desgracia. Para ello, hacemos uso del comando <strong>“sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.original”</strong>.
+                </p>
+                <img src="/Recursos/SECURIZAR FTP/copia_seguridad_ftpconfig.png" alt="copia de seguridad conf ftp">
+                <p>
+                    Hecha la copia de seguridad, podemos proseguir con nuestra tarea. El siguiente paso es habilitar los puertos para el tráfico FTP desde el firewall. 
+                    Primero debemos comprobar su estado haciendo uso del comando <strong>“sudo ufw status”</strong>. Aquí puede ocurrir una cosa y es que aparezca su
+                    estatus como inactivo, para activarlo usamos el siguiente comando: <strong>“sudo ufw enable”</strong>.
+                </p>
+                <img src="Recursos/SECURIZAR FTP/ftp_inactive_active.png" alt="status ufw">
+                <p>
+                    <strong>
+                        <ul>
+                            <li>“sudo ufw allow 20/tcp”</li>
+                            <li>“sudo ufw allow 21/tcp"</li>
+                            <li>“sudo ufw allow 22/tcp”</li>
+                            <li>“sudo ufw allow 990/tcp”</li>
+                            <li>“sudo ufw allow 42069/tcp” (nuestro puerto establecido)</li>
+                            <li>“sudo ufw allow 40000:50000/tcp”</li>
+                        </ul>
+                    </strong>
+                </p>
+                <p>
+                    Si hacemos uso, otra vez, del comando <strong>“sudo ufw status”</strong> veremos como se han añadido los puertos.
+                </p>
+                <img src="/Recursos/SECURIZAR FTP/sudo_ufw_status.png" alt="puertos habilitados">
+                <p>
+                    Ahora, procedemos a editar y configurar el archivo vsftpd.conf, para ello, hacemos uso del comando: 
+                    <strong>“sudo nano /etc/vsftpd.conf”</strong>. Se nos abrirá el siguiente editor de texto.
+                </p>
+                <img src="/Recursos/SECURIZAR FTP/vsftpd_conf.png" alt="ventana de configuracion ftp">
+                <p>
+                    Para habilitar la escritura, con las flechas de desplazamiento buscamos la línea 
+                    <strong>“#write_enable=YES”</strong> y quitamos el signo <strong>#</strong>.
+                </p>
+                <img src="/Recursos/SECURIZAR FTP/write_enable_YES.png" alt="write_enable=YES">
+                <p>
+                    También tenemos que asegurarnos que la línea <strong>“local_enable=YES”</strong> esté descomentado.
+                </p>
+                <img src="/Recursos/SECURIZAR FTP/local_enable_YES.png" alt="local_enable=YES">
+                <p>
+                    Ahora, debemos comprobar que <strong>“chroot_local_user=YES”</strong> esté descomentado también. 
+                </p>
+                <img src="/Recursos/SECURIZAR FTP/chroot_local_user_YES.png" alt="chroot_local_user=YES">
+                <p>
+                    Con los cambios realizados, apretamos CTRL O para guardar, Enter para aceptar y CTRL X para salir.
+                </p>
+                <p>
+                    Reiniciamos con el comando <strong>“sudo systemctl restart vsftpd”</strong> y verificamos el estatus del FTP usando el comando 
+                    <strong>“sudo systemctl status vsftpd”</strong>.
+                </p>
+                <img src="/Recursos/SECURIZAR FTP/reinicio_ftp_y_status.png" alt="reinicio y status de ftp">
+                <p>
+                    Cuando habilitamos esta opción, los usuarios locales del servidor FTP se enjaulan en sus directorios de inicio, lo que significa que solo tendrán acceso 
+                    y visibilidad a los archivos y directorios dentro de su propio directorio de inicio asignado. No podrán navegar por el sistema a su antojo. 
+                    Esta configuración es muy útil para aumentar la seguridad y proteger los sistemas, pues evita que los usuarios locales accedan a partes sensibles del sistema
+                    de archivos y reduce el riesgo de que realicen cambios no autorizados en otras áreas del sistema.
+                </p>
+                <p>
+                    Ahora, configuraremos la seguridad del FTP generando un certificado de seguridad SSL. Para ello, debemos ejecutar la instrucción siguiente:
+                    <strong>“sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.pem -out /etc/ssl/private/vsftpd.pem”</strong>
+                </p>
+                <p>
+                    A continuación ingresamos los datos que nos solicitan:
+                </p>
+                <img src="/Recursos/SECURIZAR FTP/sudo_openssl_req.png" alt="cifrado">
+                <p>
+                    Volvemos a abrir el archivo de configuración para realizar nuevos cambios en este. Nos iremos al final y comentaremos 
+                    (poniendo # al principio) las siguientes dos líneas:
+                </p>
+                <img src="/Recursos/SECURIZAR FTP/rsa_cert_rsa_private.png" alt="rsa cert y rsa private">
+                <img src="/Recursos/SECURIZAR FTP/se_comentan_rsacert_rsa_priv.png" alt="se comenta esas líneas">
+                <p>
+                    Una vez estas estén comentadas, agregamos las siguientes líneas:
+                </p>
+                <p>
+                    <strong>“rsa_cert_file=/etc/ssl/private/vsftpd.pem”</strong>
+                </p>
+                <p>
+                    <strong>“rsa_private_key_file=/etc/ssl/private/vsftpd.pem”</strong>
+                </p>
+                <p>
+                    Y establecemos el valor de <strong>“ssl_enable”</strong> a <strong>“YES”</strong>. La configuración quedaría de la siguiente manera:
+                </p>
+                <img src="/Recursos/SECURIZAR FTP/ssl_enable_YES.png" alt="ssl enable=YES">
+                <p>
+                    Ahora, para terminar nuestra configuración del servidor FTP, añadiremos debajo de eso, lo siguiente:
+                </p>
+                <p>
+                    <strong>
+                        <ul>
+                            <li>“allow_anon_ssl=NO”</li>
+                            <li>“force_local_data_ssl=YES”</li>
+                            <li>“force_local_logins_ssl=YES”</li>
+                            <li>“ssl_tlsv1=YES”</li>
+                            <li>“require_ssl_reuse=NO”</li>
+                            <li>“ssl_ciphers=HIGH”</li>
+                        </ul>
+                    </strong>
+                </p>
+                <img src="/Recursos/SECURIZAR FTP/configuraciones_varias.png" alt="configuraciones varias">
+                <p>
+                    Guardamos los cambios y cerramos el editor de texto. Luego reiniciamos el servidor usando el comando 
+                    <strong>“sudo systemctl restart vsftpd”</strong>.
+                </p>
+                <img src="/Recursos/SECURIZAR FTP/reinicio_ftp.png" alt="comando de reinicio ftp">
+                <p>
+                    Luego volveremos a comprobar el estado del servidor FTP para ver si todo funciona correctamente y no hubo un fallo o un contratiempo no deseado.
+                </p>
+                <p>
+                    ¿Qué hemos hecho? Estos comandos son opciones de configuración en un servidor FTP que utiliza TLS/SSL para cifrar las comunicaciones.
+                </p>
+                <p>
+                    <strong>“allow_anon_ssl=NO”</strong> establece si permite o no el acceso anónimo.
+                </p>
+                <p>
+                    <strong>“force_local_data_ssl=YES”</strong> con esta opción en YES, se requiere que las conexiones de datos también se realicen a través de SSL/TLS. 
+                    Esto asegura que los datos transferidos entre el servidor FTP y el cliente estén cifrados.
+                </p>
+                <p>
+                    <strong>“force_local_logins_ssl=YES”</strong> se obliga a que las conexiones de inicio de sesión (autenticación) también se realicen a través de SSL/TLS. 
+                    Esto asegura que el proceso de inicio de sesión esté protegido y cifrado.
+                </p>
+                <p>
+                    <strong>“ssl_tlsv1=YES”</strong> habilita el soporte para el protocolo de seguridad TLSv1. 
+                    TLS (Transport Layer Security) es una versión más segura y actualizada del protocolo SSL.
+                </p>
+                <p>
+                    <strong>“require_ssl_reuse=NO"</strong> esta opción determina si se requiere que los clientes reutilicen una conexión SSL/TLS existente. 
+                    Con este establecido en NO, no se requiere reutilizar la conexión, lo que permite conexiones separadas para cada transferencia de datos.
+                </p>
+                <p>
+                    <strong>“ssl_ciphers=HIGH”</strong> establece los cifrados SSL/TLS permitidos. En este caso, se configura para utilizar cifrados de seguridad “HIGH”, 
+                    lo que implica el uso de cifrados fuertes y seguros.
+                </p>
+                <p>
+                    Tras estos cambios, debemos comprobar que el servidor FTP sigue en funcionamiento y no nos lo hemos cargado. Debemos procurar que todo esté bien escrito y debidamente espaciado para evitar errores. 
+                    Haciendo uso, otra vez, del comando para ver el status debemos ver la palabra <strong>“active (running)”</strong>.
+                </p>
+            </div>
         </section>
     </body>
 </html>

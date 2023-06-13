@@ -22,9 +22,15 @@ header {
     border-bottom: 2px solid var(--morado);
 }
 
-h1, h2, h3 {
+h1, h2 {
     color: var(--morado);
     text-align: center;
+    margin: 10px;
+}
+
+h3 {
+    color: var(--morado);
+    margin: 10px;
 }
 
 .div_intro {
@@ -71,7 +77,9 @@ ul {
 #raid1,
 #servidor_ssh,
 #servidor_FTP,
-#servidor_apache2 {
+#servidor_apache2,
+#securizar_ssh,
+#securizar_ftp {
     padding: 20px;
     border: 1px solid var(--dorado);
     border-radius: 25px;
@@ -99,10 +107,24 @@ ul {
     margin: 7px;
 }
 
+#securizar_ssh p,
+#securizar_ssh img {
+    margin: 7px;
+}
+
+#securizar_ftp p,
+#securizar_ftp img {
+    margin: 7px;
+}
+
 strong {
     color: var(--morado);
 }
 
 div p {
     text-align: justify;
+}
+
+.permitroot_no {
+    display: flex;
 }
