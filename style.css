@@ -6,7 +6,7 @@
 
 @font-face {
     font-family: fuenteTitulo;
-    src: url(/Recursos/FUENTELETRA/diploma.ttf);
+    src: url(Recursos/FUENTELETRA/diploma.ttf);
 }
 
 :root {
@@ -22,6 +22,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.95em;
     text-align: center;
+    background-color: rgba(192, 192, 192, 0.472);
 }
 
 header {
@@ -70,8 +71,9 @@ nav {
     line-height: 30px;
     border: 1px solid var(--dorado);
     border-radius: 25px;
-    width: 50rem;
+    width: 45rem;
     margin: 0 auto 10px;
+    background-color: white;
 }
 
 a {
@@ -102,8 +104,9 @@ ul {
     padding: 20px;
     border: 1px solid var(--dorado);
     border-radius: 25px;
-    width: 50rem;
+    width: 45rem;
     margin: 0 auto 10px;
+    background-color: white;
 }
 
 #raid1 p,
@@ -161,4 +164,43 @@ div p {
 
 .permitroot_no {
     display: flex;
+}
+
+img {
+    width: 500px;
+}
+
+.contenedor_logos img {
+    width: 145px;
+    height: 145px;
+}
+
+img[alt="logo de filezilla"] {
+    width: 175px !important;
+    height: 175px !important;
+}
+
+img[alt="logo ssh"] {
+    width: 125px !important;
+    height: 125px !important;
+}
+
+img[alt="logo ftp"] {
+    width: 175px !important;
+    height: 175px !important;
+}
+
+img[alt="logo apache"] {
+    width: 300px !important;
+    height: 150px !important;
+}
+
+img[alt="logo mysql"] {
+    width: 300px !important;
+    height: 150px !important;
+}
+
+img[alt="logo php"] {
+    width: 175px !important;
+    height: 155px !important;
 }
