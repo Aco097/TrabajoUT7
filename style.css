@@ -4,9 +4,18 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: fuenteTitulo;
+    src: url(/Recursos/FUENTELETRA/diploma.ttf);
+}
+
 :root {
     --dorado: #FDB927;
     --morado: #542583;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -20,6 +29,13 @@ header {
     background-color: var(--dorado);
     padding: 15px;
     border-bottom: 2px solid var(--morado);
+}
+
+h1 {
+    font-family: fuenteTitulo, Arial, Geneva;
+    color: black !important;
+    font-size: 2.4em;
+    text-shadow: white 1px 1px 0.25px;
 }
 
 h1, h2 {
@@ -79,7 +95,10 @@ ul {
 #servidor_FTP,
 #servidor_apache2,
 #securizar_ssh,
-#securizar_ftp {
+#securizar_ftp,
+#soporte_mysql,
+#soporte_php,
+#securizar_apache2 {
     padding: 20px;
     border: 1px solid var(--dorado);
     border-radius: 25px;
@@ -114,6 +133,21 @@ ul {
 
 #securizar_ftp p,
 #securizar_ftp img {
+    margin: 7px;
+}
+
+#soporte_mysql p,
+#soporte_mysql img {
+    margin: 7px;
+}
+
+#soporte_php p,
+#soporte_php img {
+    margin: 7px;
+}
+
+#securizar_apache2 p,
+#securizar_apache2 img {
     margin: 7px;
 }
 

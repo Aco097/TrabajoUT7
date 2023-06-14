@@ -11,7 +11,9 @@
         <!-- header -->
         <header>
             <h1>
-                TRABAJO FINAL DE SISTEMAS INFORMÁTICOS
+                TRABAJO FINAL
+                <br>
+                SISTEMAS INFORMÁTICOS
             </h1>
         </header>
         <!-- Intro -->
@@ -63,6 +65,12 @@
                 <li>
                     <a href="#servidor_apache2">Servidor Web Apache2</a>
                 </li>
+                <li>
+                    <a href="#soporte_mysql">Soporte MySQL</a>
+                </li>
+                <li>
+                    <a href="#soporte_php">Soporte PHP</a>
+                </li>
             </ul>
             <h3 style="color: var(--morado)">¡Hora de securizar!</h3>
             <ul>
@@ -73,7 +81,7 @@
                     <a href="#securizar_ftp">Securizando FTP</a>
                 </li>
                 <li>
-                    <a href="#">Securizando Servidor Web Apache2</a>
+                    <a href="#securizar_apache2">Securizando Servidor Web Apache2</a>
                 </li>
             </ul>
         </nav>
@@ -270,6 +278,10 @@
                     Configuraremos el servidor Apache para escuchar las conexiones de nuestro puerto 42069.
                 </p>
                 <img src="/Recursos/SERVIDOR%20WEB%20APACHE%202/configuracion_puerto_apache2.png" alt="configuracion puerto apache2">
+                <p style="color: red; font-size: 0.85em; text-align: center;">
+                    ¡Tener el mismo puerto en el SSH y en el Apache2 puede generar conflicto, por tanto se ha cambiado ha posteriore debido a la aparición de dicho
+                    error!
+                </p>
                 <p>
                     Ahora reiniciamos el servicio apache2 con el siguiente comando: <strong>“sudo service apache2 restart” </strong>
                     y comprobamos el estado por si funciona correctamente.
@@ -279,9 +291,103 @@
                     Ahora, si todo está correcto, en el navegador de nuestra máquina cliente, si ingresamos en el buscador la ip del servidor y el puerto que hemos 
                     puesto nos aparecerá la página de Apache2 que nos indica que todo funciona correctamente.
                 </p>
-                <img src="/Recursos/SERVIDOR%20WEB%20APACH%202/apache2_finalizado.png" alt="pagina web estandar de apache2" width="500">
+                <img src="/Recursos/SERVIDOR%20WEB%20APACHE%202/apache2_finalizado.png" alt="pagina web estandar de apache2" width="500">
+                <!-- Aqui va nuestra web y los pasos a seguir para conseguirlo -->
+                <h4>
+                    Nuestra web alojada en el servidor apache2
+                </h4>
             </div>
         </section>
+
+        <!-- Soporte MySQL -->
+        <section id="soporte_mysql">
+            <h3>
+                Soporte MySQL
+            </h3>
+            <div class="tutorial_mysql">
+                <p>
+                    Con un servidor web funcional, deberá instalar un sistema de base de datos para poder almacenar y gestionar los datos. 
+                    Para instalar, hacemos uso del comando <strong>“sudo apt install mysql-server”</strong>.
+                </p>
+                <img src="/Recursos/MySQL/install_mysql.png" alt="instalación del mysql">
+                <p>
+                    Una vez instalado, es recomendable ejecutar una secuencia de comandos de seguridad que viene preinstalada en MySQL, con esta secuencia de comandos 
+                    se eliminarán algunos ajustes predeterminados poco seguros y se bloqueará el acceso a su sistema de base de datos.
+                </p>
+                <p>
+                    Iniciemos la siguiente de comandos: <strong>“sudo mysql_secure_installation”</strong>.
+                </p>
+                <img src="/Recursos/MySQL/secure_installation.png" alt="instalacion de seguridad mysql">
+                <p>
+                    Se nos abrirá lo siguiente. Donde nos preguntará si deseamos configurar el “VALIDATE PASSWORD PLUGIN”. Si se habilita esta característica, 
+                    MySQL rechazará con un mensaje de error las contraseñas que no coincidan con los criterios especificados. Dejar la validación desactivada será 
+                    una opción segura, pero siempre deberá usar contraseñas seguras y únicas.
+                </p>
+                <img src="/Recursos/MySQL/validate_password.png" alt="validacion de contraseña">
+                <p>
+                    Si respondemos “y”, se le solicitará que seleccione un nivel de validación de contraseña. Si ingresa “2” para indicar el nivel más seguro, 
+                    recibirá un mensaje de error al intentar cualquier contraseña que no contenga números, letras en mayúsculas y minúsculas, caracteres especiales,
+                    o que se base en palabras comunes. 
+                </p>
+                <img src="/Recursos/MySQL/niveles_de_seguridad_sql.png" alt="niveles de seguridad para la contraseña mysql">
+                <p>
+                    Independientemente, su servidor le solicitará que seleccione y confirme una contraseña para el root user de MySQL 
+                    <strong style="color: red;">(que nada tiene que ver con el root del sistema, ojo)</strong>.
+                </p>
+                <p>
+                    Introducida una contraseña en base al nivel que haya seleccionado, se le indicará la seguridad de esta y se le preguntará si desea continuar usándola.
+                </p>
+                <img src="/Recursos/MySQL/estimated_strength.png" alt="nivel de seguridad de la contraseña" width="750">
+                <p>
+                    Establezcamos conexión con el servidor de MySQL como root user de la base de datos administrativa, lo que se infiere del uso uso cuando se ejecuta este comando 
+                    <strong>“sudo mysql”</strong>. Observe que no nos pide la contraseña que hemos introducido pues al usar <strong>“sudo”</strong> estamos haciendo 
+                    que MySQL se ejecute ya con esos privilegios.
+                </p>
+                <img src="/Recursos/MySQL/sudo_mysql.png" alt="copyright mysql">
+                <p>
+                    Para salir de la consola de MySQL escribimos: <strong>"exit"</strong>.
+                </p>
+                <img src="/Recursos/MySQL/bye.png" alt="mensaje de despedida mysql">
+            </div>
+        </section>
+
+        <!-- Soporte PHP -->
+        <section id="soporte_php">
+            <h3>
+                Soporte PHP
+            </h3>
+            <div class="tutorial_php">
+                <p>
+                    Apache presenta el contenido, MySQL almacena y gestiona los datos. 
+                    PHP es el componente de nuestra configuración que procesa el código para mostrar contenido dinámico al usuario final.
+                </p>
+                <p>
+                    Además del paquete <strong>“php”</strong>, se necesitará <strong>“php-mysql”</strong>, un módulo PHP que permite que este se comunique 
+                    con bases de datos basadas en MySQL. También se necesitará <strong>“libreapache2-mod-php”</strong> para habilitar Apache para gestionar archivos PHP.
+                </p>
+                <p style="text-align: center; text-decoration: underline; font-size: 1.25em; color: var(--dorado)">
+                    ¡Instalemos esos paquetes!
+                </p>
+                <p>
+                    Ejecutamos lo siguiente en la consola de comandos: <strong>“sudo apt install php libapache2-mod-php php-mysql”</strong>.
+                </p>
+                <img src="/Recursos/PHP/instalacion_php.png" alt="instalacion php">
+                <p>
+                    Una vez la instalación se complete, ejecutaremos el siguiente comando para ver la versión de PHP: <strong>“php -v”</strong>.
+                </p>
+                <img src="/Recursos/PHP/version_php.png" alt="version de php instalada">
+                <p>
+                    Podemos hacer lo siguiente para ver si funciona correctamente. 
+                    Ejecutamos el siguiente comando <strong>“sudo nano /var/www/html/info.php”</strong>. En el archivo que se nos abre escribimos lo siguiente. 
+                </p>
+                <img src="/Recursos/PHP/prueba_php.png" alt="prueba para ver si funciona">
+                <p>
+                    Guardamos los cambios y buscamos en el navegador la <strong>IP:PUERTO e “info.php”</strong> al final.
+                </p>
+                <img src="/Recursos/PHP/php_funciona.png" alt="pagina web de php" width="750">
+            </div>
+        </section>
+
         <!-- Securizar los diferentes servicios -->
         <!-- Securizando SSH -->          
         <h2>
@@ -534,6 +640,69 @@
                 <p>
                     Tras estos cambios, debemos comprobar que el servidor FTP sigue en funcionamiento y no nos lo hemos cargado. Debemos procurar que todo esté bien escrito y debidamente espaciado para evitar errores. 
                     Haciendo uso, otra vez, del comando para ver el status debemos ver la palabra <strong>“active (running)”</strong>.
+                </p>
+            </div>
+        </section>
+        <!-- Securizando Servidor Web Apache2 -->
+        <section id="securizar_apache2">
+            <h3>
+                Securizando servidor web Apache
+            </h3>
+            <div class="securizando_apache2">
+                <p>
+                    Pese a que el Servidor Web Apache es seguro, podemos añadir protección extra: 
+                </p>
+                <p>
+                    Lo que primero que haremos para blindar este servicio es desactivar los tokens; esta configuración (en el archivo puesto como <strong>"ServerTokens ProductOnly”</strong>) 
+                    determina qué información se muestra en el encabezado de respuesta “Server” cuando el servidor Apache responde a las solicitudes HTTP.
+                </p>
+                <p style="color: red; text-align: center;">
+                    ¡Procura hacer una copia de seguridad antes de realizar cualquier cambio en dicho archivo!
+                </p>
+                <img src="Recursos/SECURIZAR APACHE2/copia_seguridad_security.conf.png" alt="copia de seguridad del archivo configuracion de seguridad">
+                <p>
+                    Para cambiar esta configuración nos iremos al archivo security.conf en el directorio: 
+                    <strong>“/etc/apache2/conf-available/security.conf”</strong> haciendo uso del comando <strong>“sudo nano”</strong> al principio de dicho directorio.
+                </p>
+                <p>
+                    Y debemos añadir la siguiente línea en el apartado que habla de los tokens: <strong>“ServerTokens ProductOnly”</strong>.
+                </p>
+                <img src="/Recursos/SECURIZAR APACHE2/ServerTokens_antes.png" alt="antes del cambio">
+                <img src="/Recursos/SECURIZAR APACHE2/ServerTokens_despues.png" alt="despues del cambio">
+                <p>
+                    Guardamos y salimos para reiniciar el servicio apache2 para que se efectúen dichos cambios.
+                </p>
+                <img src="/Recursos/SECURIZAR APACHE2/apache2_restart.png" alt="restart del servicio apache2">
+                <p>
+                    Volvemos a verificar su estado para ver que no ha habido ningún error:
+                </p>
+                <img src="/Recursos/SECURIZAR APACHE2/apache2_status.png" alt="status apache2">
+                <p>
+                    Lo siguiente que haremos será ir al archivo <strong>“apache2.conf”</strong> y no permitir que el servidor apache lea cualquier archivo .htaccess con 
+                    <strong>“AllowOverride None”</strong>. Esto evitará que un posible atacante cuele un archivo malicioso en el tráfico del servidor.
+                </p>
+                <img src="/Recursos/SECURIZAR APACHE2/AllowOverride_none.png" alt="AllowOverride none">
+                <p>
+                    En el mismo editor, al final de este, añadiremos la siguiente línea:
+                    <strong>“RequestReadTimeout header=10-20,MinRate=500 body=20,MinRate=500”</strong>
+                </p>
+                <p>
+                    Esto hará que el servidor web Apache cierre la conexión si el cliente tarda más de 10 segundos en enviar sus encabezados HTTP, o tarda más de 20 segundos a una velocidad de 500 bytes/s. 
+                    sEste comando es muy beneficioso pues evitará ataques de denegación de servicio (DDoS).
+                </p>
+                <img src="/Recursos/SECURIZAR APACHE2/RequestRead.png" alt="bloqueo DDoS">
+                <p>
+                    Para efectuar todos los cambios, guardamos y reiniciamos el servidor apache. Para comprobar que todo funciona, comprobamos el estado.
+                </p>
+                <img src="/Recursos/SECURIZAR APACHE2/apache2_status_cambios.png" alt="status apache2">
+                <p>
+                    Por último, y no menos importante, vamos a añadir los certificados SSL/TLS con el siguiente comando 
+                    <strong>“sudo a2enmod headers”</strong>.
+                </p>
+                <img src="/Recursos/SECURIZAR APACHE2/a2enmod.png" alt="a2enmod">
+                <p>
+                    Ese mensaje quiere decir que ya estaban habilitados de antes y que ya no hace falta volver a hacerlo. En todo caso, y si no lo has habilitado con anterioridad, 
+                    te solicitará reiniciar el servicio apache2 (<strong>“sudo systemctl restart apache2”</strong>) y se te habilitaran.
                 </p>
             </div>
         </section>
