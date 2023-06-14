@@ -32,13 +32,12 @@
             <div class="contenedor_logos">
                 <div class="virtualbox_logo">
                     <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">
-                        <img src="/Recursos/LOGOS/Virtualbox_logo.png" alt="logo de virtual box" width="190">
                     </a>
                     <p style="text-align: center;">Virtual Box</p>
                 </div>
                 <div class="ubuntu_logo">
                     <a href="https://ubuntu.com/download/server" target="_blank">
-                        <img src="/Recursos/LOGOS/ubuntu-logo.png" alt="logo de ubuntu" width="170">
+                        <img src="Recursos/LOGOS/ubuntu-logo.png" alt="logo de ubuntu" width="170">
                     </a>
                     <p style="margin-top: 17px; text-align: center;">
                         Ubuntu server
@@ -101,15 +100,15 @@
                     Lo que estamos consiguiendo con este tipo de particionamiento es crear un almacén con información duplicada en dos discos duros.
                     Cuando almacenamos un dato, este se duplica inmediatamente en su unidad espejo para así tener dos veces el mismo dato almacenado.
                 </p>
-                <img src="/Recursos/RAID%201/esquema_raid1.png" alt="esquema de una particion RAID 1">
+                <img src="Recursos/RAID%201/esquema_raid1.png" alt="esquema de una particion RAID 1">
                 <p>
                     Para poder realizar esto en nuestro servidor ubuntu, primero debemos crear el segundo disco duro en la misma máquina virtual:
                 </p>
-                <img src="/Recursos/RAID%201/añadir_discos_duros.png" alt="añadir discos duros">
+                <img src="Recursos/RAID%201/añadir_discos_duros.png" alt="añadir discos duros">
                 <p>
                     Nos dirigimos a la configuración de la máquina y nos dirigimos a la ventana de “almacenamiento” y hacemos clic en “añadir disco duro”.
                 </p>
-                <img src="/Recursos/RAID%201/icono_crear_discoduro.png" alt="icono de crear discos duros">
+                <img src="Recursos/RAID%201/icono_crear_discoduro.png" alt="icono de crear discos duros">
                 <p>
                     Le daremos al icono de “crear”. Esto nos permitirá crear un nuevo disco duro.
                 </p>
@@ -117,14 +116,14 @@
                     Creamos dicho como siempre hemos estado haciendo en las demás actividades. Le daremos la misma capacidad (25 GB)
                     y será un disco duro dinámico; también crearemos otro de 10 GB. En la siguiente imagen veremos todos los discos duros.
                 </p>
-                <img src="/Recursos/RAID%201/discos_duros_creados.png" alt="imagen donde se ven esos discos duros creados">
+                <img src="Recursos/RAID%201/discos_duros_creados.png" alt="imagen donde se ven esos discos duros creados">
                 <p>
                     Con ambos discos duros listos, procederemos a instalar el servidor y configurar dicha partición como RAID 1.
                 </p>
                 <p>
                     Tras avanzar entre las configuraciones previas, nos detendremos concretamente en este apartado.
                 </p>
-                <img src="/Recursos/RAID%201/custom_storage_layout.png" alt="seleccion del disco duro">
+                <img src="Recursos/RAID%201/custom_storage_layout.png" alt="seleccion del disco duro">
                 <p>
                     Aquí, seleccionamos <strong>“custom storage layout”</strong> donde podremos crear particiones,
                     seleccionar el disco donde queramos instalar el sistema operativo y, lo que nos importa, configurar una partición RAID 1.
@@ -137,18 +136,18 @@
                     Le damos a enter en el apartado que pone <strong>“espacio disponible”</strong>.
                     Le daremos a <strong>“add GPT partition”</strong>. Esta opción crea una partición en dicho disco que usaremos como partición RAID 1.
                 </p>
-                <img src="/Recursos/RAID%201/add_gpt_partition.png" alt="añadir particion gpt">
+                <img src="Recursos/RAID%201/add_gpt_partition.png" alt="añadir particion gpt">
                 <br>
-                <img src="/Recursos/RAID%201/dar_formato_gpt_partition.png" alt="dar formato gpt a la particion">
+                <img src="Recursos/RAID%201/dar_formato_gpt_partition.png" alt="dar formato gpt a la particion">
                 <p>
                     Size será el tamaño máximo disponible (9.998GB), el formato ext4 y mount será el sistema (/). Una vez configurado, le damos a
                     <strong>“crear”</strong>.
                 </p>
-                <img src="/Recursos/RAID%201/opción_raid1.png" alt="opcion del menu raid1">
+                <img src="Recursos/RAID%201/opción_raid1.png" alt="opcion del menu raid1">
                 <p>
                     Ahora, daremos enter en <strong>“create software RAID (md)”</strong>
                 </p>
-                <img src="/Recursos/RAID%201/software_raid1.png" alt="">
+                <img src="Recursos/RAID%201/software_raid1.png" alt="">
                 <p>
                     Le dejaremos el mismo nombre (md0). RAID Level será el nivel 1, tal y como nos pide el ejercicio, y activamos los dos dispositivos
                     (los dos discos duros).
@@ -161,13 +160,13 @@
                     Para ponerlo a punto y listo, debemos hacer que en esta se monte y funcione como el <strong>“/home”</strong> del sistema.
                      Para ello, seleccionamos la partición RAID 1 y luego le daremos enter a <strong>“add GPT Partition”</strong>.
                 </p>
-                <img src="/Recursos/RAID%201/md0_partition.png" alt="">
+                <img src="Recursos/RAID%201/md0_partition.png" alt="">
                 <p>
                     Cambiaremos el mount y lo pondremos a <strong>“/home”</strong>.
                 </p>
-                <img src="/Recursos/RAID%201/directorio_home.png" alt="">
+                <img src="Recursos/RAID%201/directorio_home.png" alt="">
                 <br>
-                <img src="/Recursos/RAID%201/resumen_montaje.png" alt="">
+                <img src="Recursos/RAID%201/resumen_montaje.png" alt="">
                 <p>
                     En este resumen podremos ver ambas particiones. Donde hemos configurado el RAID 1 y la partición para el disco local.
                 </p>
@@ -175,7 +174,7 @@
                     Al darle a aceptar nos saltará este mensaje de advertencia donde nos dirá que se van a formatear los  diferentes discos.
                     Le daremos a <strong>“continuar”</strong>.
                 </p>
-                <img src="/Recursos/RAID%201/formateo_discos.png" alt="">
+                <img src="Recursos/RAID%201/formateo_discos.png" alt="">
             </div>
         </section>
         <!-- Servidor SSH -->
@@ -188,16 +187,16 @@
                     Durante la instalación del servidor, Linux Ubuntu nos facilita la instalación por defecto de un servidor SSH. 
                     Obviamente, accederemos a que lo instale de manera predeterminada.
                 </p>
-                <img src="/Recursos/SERVIDOR%20SSH/instalacion_ssh.png" alt="">
+                <img src="Recursos/SERVIDOR%20SSH/instalacion_ssh.png" alt="">
                 <p>
                     Cuando terminemos de instalar el sistema operativo ubuntu server usaremos el comando para verificar que el SSH está instalado y 
                     operativo usando el comando <strong>“systemctl status ssh”</strong> .
                 </p>
-                <img src="/Recursos/SERVIDOR%20SSH/status_ssh_primero.png" alt="">
+                <img src="Recursos/SERVIDOR%20SSH/status_ssh_primero.png" alt="">
                 <p>
                     Ahora, tenemos que asignarle una IP a este servidor SSH. Sabremos la IP de nuestra máquina haciendo uso del comando <strong>“ip a”</strong>.
                 </p>
-                <img src="/Recursos/SERVIDOR%20SSH/ssh_ip_a.png" alt="">
+                <img src="Recursos/SERVIDOR%20SSH/ssh_ip_a.png" alt="">
                 <p>
                     Luego, usamos el comando <strong>“ssh [nombre_usuario]@ip”</strong>. 
                 </p>
@@ -208,7 +207,7 @@
                     <a href="#securizar_ssh">(click para ir al tutorial)</a> en este trabajo hemos cambiado el puerto por seguridad <strong>(42069)</strong> pondremos esta secuencia de 
                     números.
                 </p>
-                <img src="/Recursos/SERVIDOR%20SSH/ssh_con_puerto.png" alt="">
+                <img src="Recursos/SERVIDOR%20SSH/ssh_con_puerto.png" alt="">
             </div>
         </section>
         <!-- Servidor FTP -->
@@ -220,33 +219,33 @@
                 <p>
                     Para instalar el servidor FTP hacemos uso del comando <strong>“sudo apt install vsftpd”</strong>. 
                 </p>
-                <img src="/Recursos/SERVIDOR%20FTP/instalacion_ftp.png" alt="">
+                <img src="Recursos/SERVIDOR%20FTP/instalacion_ftp.png" alt="">
                 <p>
                     Para comprobar el estado y asegurarnos que está instalado y activo usamos el comando <strong>“systemctl status vsftpd”</strong>.
                 </p>
-                <img src="/Recursos/SERVIDOR%20FTP/status_ftp_instalacion.png" alt="">
+                <img src="Recursos/SERVIDOR%20FTP/status_ftp_instalacion.png" alt="">
                 <p>
                     Tras hacer seguro el servidor FTP  <a href="#securizar_ftp">(click para ir al tutorial)</a> vamos a acceder a este de la siguiente manera. 
                     Primero tenemos que ver la ip de nuestro servidor, para ello usaremos el comando <strong>“ip a”</strong> que nos mostrará la información que deseamos.
                 </p>
-                <img src="/Recursos/SERVIDOR%20FTP/ftp_ip_a.png" alt="ftp ip">
+                <img src="Recursos/SERVIDOR%20FTP/ftp_ip_a.png" alt="ftp ip">
                 <p>
                     Esta ip la usaremos para conectarnos al servidor FTP desde el programa FileZilla. Una vez el programa abierto, le daremos al icono de 
                     <strong>“Abrir el Gestor de Sitios”</strong>.
                 </p>
-                <img src="/Recursos/SERVIDOR%20FTP/filezilla_gestor.png" alt="icono de gestor de sitio del filezilla">
+                <img src="Recursos/SERVIDOR%20FTP/filezilla_gestor.png" alt="icono de gestor de sitio del filezilla">
                 <p>
                     Crearemos un nuevo sitio. En la pestaña de general, el cual se habilitará para la edición una vez generemos un nuevo sitio, cual llamaremos “Trabajo UT7 SSF”, 
                     debemos poner la IP de nuestro servidor, además del usuario y contraseña (que son los mismos que usamos para conectarnos vía SSH).
                 </p>
-                <img src="/Recursos/SERVIDOR%20FTP/filezilla_nuevo_sitio.png" alt="parametros filezilla" height="294">
-                <img src="/Recursos/SERVIDOR%20FTP/usuarion_contraseña.png" alt="usuario y contraseña filezilla" width="570">
-                <img src="/Recursos/SERVIDOR%20FTP/server_desconocido.png" alt="mensaje de advertencia de servidor desconocido" width="570">
+                <img src="Recursos/SERVIDOR%20FTP/filezilla_nuevo_sitio.png" alt="parametros filezilla" height="294">
+                <img src="Recursos/SERVIDOR%20FTP/usuarion_contraseña.png" alt="usuario y contraseña filezilla" width="570">
+                <img src="Recursos/SERVIDOR%20FTP/server_desconocido.png" alt="mensaje de advertencia de servidor desconocido" width="570">
                 <p>
                     Al terminar de poner los datos, daremos clic en aceptar y se nos abrirá una ventana nueva preguntando que si confiamos en dicho servidor. 
                     Daremos clic y…
                 </p>
-                <img src="/Recursos/SERVIDOR%20FTP/FILEZILLA_CONECTADO_LETSGO.png" alt="FileZilla conectado" width="555">
+                <img src="Recursos/SERVIDOR%20FTP/FILEZILLA_CONECTADO_LETSGO.png" alt="FileZilla conectado" width="555">
                 <p>
                     Si todo está bien, nos aparecerá el archivo de datos de nuestro servidor ubuntu server. Si es así, enhorabuena: 
                     <strong style="color: var(--dorado)">¡Estás conectado!</strong>
@@ -262,12 +261,12 @@
                 <p>
                     Para instalar el servidor web Apache haremos uso del comando <strong>“sudo apt install apache2”</strong>.
                 </p>
-                <img src="/Recursos/SERVIDOR%20WEB%20APACHE%202/instalar_apache2.png" alt="instalacion apache2" width="750">
-                <img src="/Recursos/SERVIDOR%20WEB%20APACHE%202/progreso_apache2.png" alt="barra de progrecion de instalacion" width="750">
+                <img src="Recursos/SERVIDOR%20WEB%20APACHE%202/instalar_apache2.png" alt="instalacion apache2" width="750">
+                <img src="Recursos/SERVIDOR%20WEB%20APACHE%202/progreso_apache2.png" alt="barra de progrecion de instalacion" width="750">
                 <p>
                     Instalado, es ritual comprobar el estado y asegurarnos que está activo. Usamos el comando <strong>“systemctl status apache2”</strong>.
                 </p>
-                <img src="/Recursos/SERVIDOR%20WEB%20APACHE%202/estatus_apache2.png" alt="estado apache2">
+                <img src="Recursos/SERVIDOR%20WEB%20APACHE%202/estatus_apache2.png" alt="estado apache2">
                 <p>
                     Abriremos el fichero de configuración (no sin antes realizar una copia de seguridad del archivo original): 
                     <strong>“sudo cp /etc/apache2/ports.conf /etc/apache2/ports.conf.original”</strong>.
@@ -279,7 +278,7 @@
                 <p>
                     Configuraremos el servidor Apache para escuchar las conexiones de nuestro puerto 42069.
                 </p>
-                <img src="/Recursos/SERVIDOR%20WEB%20APACHE%202/configuracion_puerto_apache2.png" alt="configuracion puerto apache2">
+                <img src="Recursos/SERVIDOR%20WEB%20APACHE%202/configuracion_puerto_apache2.png" alt="configuracion puerto apache2">
                 <p style="color: red; font-size: 0.85em; text-align: center;">
                     ¡Tener el mismo puerto en el SSH y en el Apache2 puede generar conflicto, por tanto se ha cambiado ha posteriore debido a la aparición de dicho
                     error!
@@ -288,12 +287,12 @@
                     Ahora reiniciamos el servicio apache2 con el siguiente comando: <strong>“sudo service apache2 restart” </strong>
                     y comprobamos el estado por si funciona correctamente.
                 </p>
-                <img src="/Recursos/SERVIDOR%20WEB%20APACHE%202/status_apache2.png" alt="estado del servidor apache2 tras puertos">
+                <img src="Recursos/SERVIDOR%20WEB%20APACHE%202/status_apache2.png" alt="estado del servidor apache2 tras puertos">
                 <p>
                     Ahora, si todo está correcto, en el navegador de nuestra máquina cliente, si ingresamos en el buscador la ip del servidor y el puerto que hemos 
                     puesto nos aparecerá la página de Apache2 que nos indica que todo funciona correctamente.
                 </p>
-                <img src="/Recursos/SERVIDOR%20WEB%20APACHE%202/apache2_finalizado.png" alt="pagina web estandar de apache2" width="500">
+                <img src="Recursos/SERVIDOR%20WEB%20APACHE%202/apache2_finalizado.png" alt="pagina web estandar de apache2" width="500">
                 <!-- Aqui va nuestra web y los pasos a seguir para conseguirlo -->
                 <h4>
                     Nuestra web alojada en el servidor apache2
@@ -311,7 +310,7 @@
                     Con un servidor web funcional, deberá instalar un sistema de base de datos para poder almacenar y gestionar los datos. 
                     Para instalar, hacemos uso del comando <strong>“sudo apt install mysql-server”</strong>.
                 </p>
-                <img src="/Recursos/MySQL/install_mysql.png" alt="instalación del mysql">
+                <img src="Recursos/MySQL/install_mysql.png" alt="instalación del mysql">
                 <p>
                     Una vez instalado, es recomendable ejecutar una secuencia de comandos de seguridad que viene preinstalada en MySQL, con esta secuencia de comandos 
                     se eliminarán algunos ajustes predeterminados poco seguros y se bloqueará el acceso a su sistema de base de datos.
@@ -319,19 +318,19 @@
                 <p>
                     Iniciemos la siguiente de comandos: <strong>“sudo mysql_secure_installation”</strong>.
                 </p>
-                <img src="/Recursos/MySQL/secure_installation.png" alt="instalacion de seguridad mysql">
+                <img src="Recursos/MySQL/secure_installation.png" alt="instalacion de seguridad mysql">
                 <p>
                     Se nos abrirá lo siguiente. Donde nos preguntará si deseamos configurar el “VALIDATE PASSWORD PLUGIN”. Si se habilita esta característica, 
                     MySQL rechazará con un mensaje de error las contraseñas que no coincidan con los criterios especificados. Dejar la validación desactivada será 
                     una opción segura, pero siempre deberá usar contraseñas seguras y únicas.
                 </p>
-                <img src="/Recursos/MySQL/validate_password.png" alt="validacion de contraseña">
+                <img src="Recursos/MySQL/validate_password.png" alt="validacion de contraseña">
                 <p>
                     Si respondemos “y”, se le solicitará que seleccione un nivel de validación de contraseña. Si ingresa “2” para indicar el nivel más seguro, 
                     recibirá un mensaje de error al intentar cualquier contraseña que no contenga números, letras en mayúsculas y minúsculas, caracteres especiales,
                     o que se base en palabras comunes. 
                 </p>
-                <img src="/Recursos/MySQL/niveles_de_seguridad_sql.png" alt="niveles de seguridad para la contraseña mysql">
+                <img src="Recursos/MySQL/niveles_de_seguridad_sql.png" alt="niveles de seguridad para la contraseña mysql">
                 <p>
                     Independientemente, su servidor le solicitará que seleccione y confirme una contraseña para el root user de MySQL 
                     <strong style="color: red;">(que nada tiene que ver con el root del sistema, ojo)</strong>.
@@ -339,17 +338,17 @@
                 <p>
                     Introducida una contraseña en base al nivel que haya seleccionado, se le indicará la seguridad de esta y se le preguntará si desea continuar usándola.
                 </p>
-                <img src="/Recursos/MySQL/estimated_strength.png" alt="nivel de seguridad de la contraseña" width="750">
+                <img src="Recursos/MySQL/estimated_strength.png" alt="nivel de seguridad de la contraseña" width="750">
                 <p>
                     Establezcamos conexión con el servidor de MySQL como root user de la base de datos administrativa, lo que se infiere del uso cuando se ejecuta este comando 
                     <strong>“sudo mysql”</strong>. Observe que no nos pide la contraseña que hemos introducido pues al usar <strong>“sudo”</strong> estamos haciendo 
                     que MySQL se ejecute ya con esos privilegios.
                 </p>
-                <img src="/Recursos/MySQL/sudo_mysql.png" alt="copyright mysql">
+                <img src="Recursos/MySQL/sudo_mysql.png" alt="copyright mysql">
                 <p>
                     Para salir de la consola de MySQL escribimos: <strong>"exit"</strong>.
                 </p>
-                <img src="/Recursos/MySQL/bye.png" alt="mensaje de despedida mysql">
+                <img src="Recursos/MySQL/bye.png" alt="mensaje de despedida mysql">
             </div>
         </section>
 
@@ -373,20 +372,20 @@
                 <p>
                     Ejecutamos lo siguiente en la consola de comandos: <strong>“sudo apt install php libapache2-mod-php php-mysql”</strong>.
                 </p>
-                <img src="/Recursos/PHP/instalacion_php.png" alt="instalacion php">
+                <img src="Recursos/PHP/instalacion_php.png" alt="instalacion php">
                 <p>
                     Una vez la instalación se complete, ejecutaremos el siguiente comando para ver la versión de PHP: <strong>“php -v”</strong>.
                 </p>
-                <img src="/Recursos/PHP/version_php.png" alt="version de php instalada">
+                <img src="Recursos/PHP/version_php.png" alt="version de php instalada">
                 <p>
                     Podemos hacer lo siguiente para ver si funciona correctamente. 
                     Ejecutamos el siguiente comando <strong>“sudo nano /var/www/html/info.php”</strong>. En el archivo que se nos abre escribimos lo siguiente. 
                 </p>
-                <img src="/Recursos/PHP/prueba_php.png" alt="prueba para ver si funciona">
+                <img src="Recursos/PHP/prueba_php.png" alt="prueba para ver si funciona">
                 <p>
                     Guardamos los cambios y buscamos en el navegador la <strong>IP:PUERTO e “info.php”</strong> al final.
                 </p>
-                <img src="/Recursos/PHP/php_funciona.png" alt="pagina web de php" width="750">
+                <img src="Recursos/PHP/php_funciona.png" alt="pagina web de php" width="750">
             </div>
         </section>
 
@@ -407,7 +406,7 @@
                     Antes que nada, vamos a realizar una copia de seguridad del archivo de configuración del SSH para restaurarlo en el hipotético caso de que salga mal. 
                     Realizaremos la copia haciendo uso del comando <strong>“sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak”</strong>.
                 </p>
-                <img src="/Recursos/SECURIZAR%20SSH/copia_seguridad_ssh.png" alt="copia de seguridad archivo conf">
+                <img src="Recursos/SECURIZAR%20SSH/copia_seguridad_ssh.png" alt="copia de seguridad archivo conf">
                 <p>
                     Antes de editar el archivo, podemos revisar las opciones que están establecidas actualmente con el comando <strong>“sudo sshd -T”</strong>. 
                     Esto ejecutará el servidor OpenSSH en modo prueba ampliado, lo que validará el archivo de configuración completo e imprimirá los valores 
@@ -417,10 +416,10 @@
                     Hecha la copia de seguridad, vamos a configurar el archivo <strong>“sudo nano etc/ssh/sshd_config</strong>”.
                     Se nos abrirá el siguiente bloque de texto.
                 </p>
-                <img src="/Recursos/SECURIZAR%20SSH/ssh_config_sin_tocar.png" alt="menu config sin alterar">
+                <img src="Recursos/SECURIZAR%20SSH/ssh_config_sin_tocar.png" alt="menu config sin alterar">
                 <div class="permitroot_no">
                     <div class="img_permit">
-                        <img src="/Recursos/SECURIZAR%20SSH/permitrootlogin_no.png" alt="permit root login no">
+                        <img src="Recursos/SECURIZAR%20SSH/permitrootlogin_no.png" alt="permit root login no">
                     </div>
                     <div class="texto_permit">
                         <p>
@@ -442,11 +441,11 @@
                     También, configuramos el número de dispositivos conectados de manera simultánea estableciendo este a 3, que es el número de integrantes del grupo, 
                     esto se hace cambiando la configuración de MaxSessions. La configuración se quedaría así:
                 </p>
-                <img src="/Recursos/SECURIZAR%20SSH/opciones_varias.png" alt="opciones cambiadas">
+                <img src="Recursos/SECURIZAR%20SSH/opciones_varias.png" alt="opciones cambiadas">
                 <p>
                     Pero no hemos acabado todavía. Estableceremos otro puerto que no sea el 22 (que es el número por defecto), por ejemplo, pondremos el puerto 42069.
                 </p>
-                <img src="/Recursos/SECURIZAR%20SSH/ssh_puerto_42069.png" alt="puerto 42069">
+                <img src="Recursos/SECURIZAR%20SSH/ssh_puerto_42069.png" alt="puerto 42069">
                 <p>
                     Para más seguridad, añadiremos al archivo <strong>sshd_config</strong> la siguiente línea. Esto sirve para configurar los algoritmos de intercambios de claves:
                     <strong>
@@ -466,16 +465,16 @@
                     <strong>“sudo ssh-keygen -f /etc/ssh/ssh_host_rsa_key -t rsa -b 4096”</strong>
                     Con este comando generamos una nueva clave RSA.
                 </p>
-                <img src="/Recursos/SECURIZAR%20SSH/clave_rsa.png" alt="clave rsa">
+                <img src="Recursos/SECURIZAR%20SSH/clave_rsa.png" alt="clave rsa">
                 <p>
                     Seguiremos, ahora, generando nuevas claves <strong>ECDSA</strong> y <strong>ED25519</strong> tendremos que utilizar los siguientes comandos:
                     <strong>“ssh-keygen -f /etc/ssh/ssh_host_ecdsa_key -t ecdsa -b 521”</strong>
                 </p>
-                <img src="/Recursos/SECURIZAR%20SSH/clave_ecdsa.png" alt="clave ecdsa">
+                <img src="Recursos/SECURIZAR%20SSH/clave_ecdsa.png" alt="clave ecdsa">
                 <p>
                     <strong>“ssh-keygen -f /etc/ssh/ssh_host_ed25519_key -t ed25519”</strong>
                 </p>
-                <img src="/Recursos/SECURIZAR%20SSH/clave_ed25519.png" alt="clave ed25519">
+                <img src="Recursos/SECURIZAR%20SSH/clave_ed25519.png" alt="clave ed25519">
                 <p>
                     Existen, además, diferentes métodos de autenticación disponibles en el servidor. Existen dos métodos principalmente: usuario y contraseña 
                     y también claves criptográficas. No obstante, si queremos dotar al sistema de una seguridad adicional, podemos combinar estas autenticaciones 
@@ -483,13 +482,13 @@
                 </p>
                 <div class="contenedor_logos">
                     <div class="google_authenticator">
-                        <img src="/Recursos/LOGOS/logo_google_autheticator.png" alt="logo del google Authenticator" width="150">
+                        <img src="Recursos/LOGOS/logo_google_autheticator.png" alt="logo del google Authenticator" width="150">
                         <p>
                             Google Authenticator
                         </p>
                     </div>
                     <div class="latch_otp">
-                        <img src="/Recursos/LOGOS/latch_otp.png" alt="logo del latch otp" width="300" height="151">
+                        <img src="Recursos/LOGOS/latch_otp.png" alt="logo del latch otp" width="300" height="151">
                         <p>
                             Latch OTP
                         </p>
@@ -507,13 +506,13 @@
                     Es buena práctica hacer una <strong style="color: black;">copia de seguridad</strong> de la configuración original, por si acaso, no vaya a ser que 
                     tengamos una desgracia. Para ello, hacemos uso del comando <strong>“sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.original”</strong>.
                 </p>
-                <img src="/Recursos/SECURIZAR%20FTP/copia_seguridad_ftpconfig.png" alt="copia de seguridad conf ftp">
+                <img src="Recursos/SECURIZAR%20FTP/copia_seguridad_ftpconfig.png" alt="copia de seguridad conf ftp">
                 <p>
                     Hecha la copia de seguridad, podemos proseguir con nuestra tarea. El siguiente paso es habilitar los puertos para el tráfico FTP desde el firewall. 
                     Primero debemos comprobar su estado haciendo uso del comando <strong>“sudo ufw status”</strong>. Aquí puede ocurrir una cosa y es que aparezca su
                     estatus como inactivo, para activarlo usamos el siguiente comando: <strong>“sudo ufw enable”</strong>.
                 </p>
-                <img src="/Recursos/SECURIZAR%20FTP/ftp_inactive_active.png" alt="status ufw">
+                <img src="Recursos/SECURIZAR%20FTP/ftp_inactive_active.png" alt="status ufw">
                 <ul>
                     <li>“sudo ufw allow 20/tcp”</li>
                     <li>“sudo ufw allow 21/tcp"</li>
@@ -525,25 +524,25 @@
                 <p>
                     Si hacemos uso, otra vez, del comando <strong>“sudo ufw status”</strong> veremos como se han añadido los puertos.
                 </p>
-                <img src="/Recursos/SECURIZAR%20FTP/sudo_ufw_status.png" alt="puertos habilitados">
+                <img src="Recursos/SECURIZAR%20FTP/sudo_ufw_status.png" alt="puertos habilitados">
                 <p>
                     Ahora, procedemos a editar y configurar el archivo vsftpd.conf, para ello, hacemos uso del comando: 
                     <strong>“sudo nano /etc/vsftpd.conf”</strong>. Se nos abrirá el siguiente editor de texto.
                 </p>
-                <img src="/Recursos/SECURIZAR%20FTP/vsftpd_conf.png" alt="ventana de configuracion ftp">
+                <img src="Recursos/SECURIZAR%20FTP/vsftpd_conf.png" alt="ventana de configuracion ftp">
                 <p>
                     Para habilitar la escritura, con las flechas de desplazamiento buscamos la línea 
                     <strong>“#write_enable=YES”</strong> y quitamos el signo <strong>#</strong>.
                 </p>
-                <img src="/Recursos/SECURIZAR%20FTP/write_enable_YES.png" alt="write_enable=YES">
+                <img src="Recursos/SECURIZAR%20FTP/write_enable_YES.png" alt="write_enable=YES">
                 <p>
                     También tenemos que asegurarnos que la línea <strong>“local_enable=YES”</strong> esté descomentado.
                 </p>
-                <img src="/Recursos/SECURIZAR%20FTP/local_enable_YES.png" alt="local_enable=YES">
+                <img src="Recursos/SECURIZAR%20FTP/local_enable_YES.png" alt="local_enable=YES">
                 <p>
                     Ahora, debemos comprobar que <strong>“chroot_local_user=YES”</strong> esté descomentado también. 
                 </p>
-                <img src="/Recursos/SECURIZAR%20FTP/chroot_local_user_YES.png" alt="chroot_local_user=YES">
+                <img src="Recursos/SECURIZAR%20FTP/chroot_local_user_YES.png" alt="chroot_local_user=YES">
                 <p>
                     Con los cambios realizados, apretamos CTRL O para guardar, Enter para aceptar y CTRL X para salir.
                 </p>
@@ -551,7 +550,7 @@
                     Reiniciamos con el comando <strong>“sudo systemctl restart vsftpd”</strong> y verificamos el estatus del FTP usando el comando 
                     <strong>“sudo systemctl status vsftpd”</strong>.
                 </p>
-                <img src="/Recursos/SECURIZAR%20FTP/reinicio_ftp_y_status.png" alt="reinicio y status de ftp">
+                <img src="Recursos/SECURIZAR%20FTP/reinicio_ftp_y_status.png" alt="reinicio y status de ftp">
                 <p>
                     Cuando habilitamos esta opción, los usuarios locales del servidor FTP se enjaulan en sus directorios de inicio, lo que significa que solo tendrán acceso 
                     y visibilidad a los archivos y directorios dentro de su propio directorio de inicio asignado. No podrán navegar por el sistema a su antojo. 
@@ -565,13 +564,13 @@
                 <p>
                     A continuación ingresamos los datos que nos solicitan:
                 </p>
-                <img src="/Recursos/SECURIZAR%20FTP/sudo_openssl_req.png" alt="cifrado">
+                <img src="Recursos/SECURIZAR%20FTP/sudo_openssl_req.png" alt="cifrado">
                 <p>
                     Volvemos a abrir el archivo de configuración para realizar nuevos cambios en este. Nos iremos al final y comentaremos 
                     (poniendo # al principio) las siguientes dos líneas:
                 </p>
-                <img src="/Recursos/SECURIZAR%20FTP/rsa_cert_rsa_private.png" alt="rsa cert y rsa private">
-                <img src="/Recursos/SECURIZAR%20FTP/se_comentan_rsacert_rsa_priv.png" alt="se comenta esas líneas">
+                <img src="Recursos/SECURIZAR%20FTP/rsa_cert_rsa_private.png" alt="rsa cert y rsa private">
+                <img src="Recursos/SECURIZAR%20FTP/se_comentan_rsacert_rsa_priv.png" alt="se comenta esas líneas">
                 <p>
                     Una vez estas estén comentadas, agregamos las siguientes líneas:
                 </p>
@@ -584,7 +583,7 @@
                 <p>
                     Y establecemos el valor de <strong>“ssl_enable”</strong> a <strong>“YES”</strong>. La configuración quedaría de la siguiente manera:
                 </p>
-                <img src="/Recursos/SECURIZAR%20FTP/ssl_enable_YES.png" alt="ssl enable=YES">
+                <img src="Recursos/SECURIZAR%20FTP/ssl_enable_YES.png" alt="ssl enable=YES">
                 <p>
                     Ahora, para terminar nuestra configuración del servidor FTP, añadiremos debajo de eso, lo siguiente:
                 </p>
@@ -596,12 +595,12 @@
                     <li>“require_ssl_reuse=NO”</li>
                     <li>“ssl_ciphers=HIGH”</li>
                 </ul>
-                <img src="/Recursos/SECURIZAR%20FTP/configuraciones_varias.png" alt="configuraciones varias">
+                <img src="Recursos/SECURIZAR%20FTP/configuraciones_varias.png" alt="configuraciones varias">
                 <p>
                     Guardamos los cambios y cerramos el editor de texto. Luego reiniciamos el servidor usando el comando 
                     <strong>“sudo systemctl restart vsftpd”</strong>.
                 </p>
-                <img src="/Recursos/SECURIZAR%20FTP/reinicio_ftp.png" alt="comando de reinicio ftp">
+                <img src="Recursos/SECURIZAR%20FTP/reinicio_ftp.png" alt="comando de reinicio ftp">
                 <p>
                     Luego volveremos a comprobar el estado del servidor FTP para ver si todo funciona correctamente y no hubo un fallo o un contratiempo no deseado.
                 </p>
@@ -653,7 +652,7 @@
                 <p style="color: red; text-align: center;">
                     ¡Procura hacer una copia de seguridad antes de realizar cualquier cambio en dicho archivo!
                 </p>
-                <img src="/Recursos/SECURIZAR%20APACHE2/copia_seguridad_security.conf.png" alt="copia de seguridad del archivo configuracion de seguridad">
+                <img src="Recursos/SECURIZAR%20APACHE2/copia_seguridad_security.conf.png" alt="copia de seguridad del archivo configuracion de seguridad">
                 <p>
                     Para cambiar esta configuración nos iremos al archivo security.conf en el directorio: 
                     <strong>“/etc/apache2/conf-available/security.conf”</strong> haciendo uso del comando <strong>“sudo nano”</strong> al principio de dicho directorio.
@@ -661,21 +660,21 @@
                 <p>
                     Y debemos añadir la siguiente línea en el apartado que habla de los tokens: <strong>“ServerTokens ProductOnly”</strong>.
                 </p>
-                <img src="/Recursos/SECURIZAR%20APACHE2/ServerTokens_antes.png" alt="antes del cambio">
-                <img src="/Recursos/SECURIZAR%20APACHE2/ServerTokens_despues.png" alt="despues del cambio">
+                <img src="Recursos/SECURIZAR%20APACHE2/ServerTokens_antes.png" alt="antes del cambio">
+                <img src="Recursos/SECURIZAR%20APACHE2/ServerTokens_despues.png" alt="despues del cambio">
                 <p>
                     Guardamos y salimos para reiniciar el servicio apache2 para que se efectúen dichos cambios.
                 </p>
-                <img src="/Recursos/SECURIZAR%20APACHE2/apache2_restart.png" alt="restart del servicio apache2">
+                <img src="Recursos/SECURIZAR%20APACHE2/apache2_restart.png" alt="restart del servicio apache2">
                 <p>
                     Volvemos a verificar su estado para ver que no ha habido ningún error:
                 </p>
-                <img src="/Recursos/SECURIZAR%20APACHE2/apache2_status.png" alt="status apache2">
+                <img src="Recursos/SECURIZAR%20APACHE2/apache2_status.png" alt="status apache2">
                 <p>
                     Lo siguiente que haremos será ir al archivo <strong>“apache2.conf”</strong> y no permitir que el servidor apache lea cualquier archivo .htaccess con 
                     <strong>“AllowOverride None”</strong>. Esto evitará que un posible atacante cuele un archivo malicioso en el tráfico del servidor.
                 </p>
-                <img src="/Recursos/SECURIZAR%20APACHE2/AllowOverride_none.png" alt="AllowOverride none">
+                <img src="Recursos/SECURIZAR%20APACHE2/AllowOverride_none.png" alt="AllowOverride none">
                 <p>
                     En el mismo editor, al final de este, añadiremos la siguiente línea:
                     <strong>“RequestReadTimeout header=10-20,MinRate=500 body=20,MinRate=500”</strong>
@@ -684,16 +683,16 @@
                     Esto hará que el servidor web Apache cierre la conexión si el cliente tarda más de 10 segundos en enviar sus encabezados HTTP, o tarda más de 20 segundos a una velocidad de 500 bytes/s. 
                     sEste comando es muy beneficioso pues evitará ataques de denegación de servicio (DDoS).
                 </p>
-                <img src="/Recursos/SECURIZAR%20APACHE2/RequestRead.png" alt="bloqueo DDoS">
+                <img src="Recursos/SECURIZAR%20APACHE2/RequestRead.png" alt="bloqueo DDoS">
                 <p>
                     Para efectuar todos los cambios, guardamos y reiniciamos el servidor apache. Para comprobar que todo funciona, comprobamos el estado.
                 </p>
-                <img src="/Recursos/SECURIZAR%20APACHE2/apache2_status_cambios.png" alt="status apache2">
+                <img src="Recursos/SECURIZAR%20APACHE2/apache2_status_cambios.png" alt="status apache2">
                 <p>
                     Por último, y no menos importante, vamos a añadir los certificados SSL/TLS con el siguiente comando 
                     <strong>“sudo a2enmod headers”</strong>.
                 </p>
-                <img src="/Recursos/SECURIZAR%20APACHE2/a2enmod.png" alt="a2enmod">
+                <img src="Recursos/SECURIZAR%20APACHE2/a2enmod.png" alt="a2enmod">
                 <p>
                     Ese mensaje quiere decir que ya estaban habilitados de antes y que ya no hace falta volver a hacerlo. En todo caso, y si no lo has habilitado con anterioridad, 
                     te solicitará reiniciar el servicio apache2 (<strong>“sudo systemctl restart apache2”</strong>) y se te habilitaran.
