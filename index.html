@@ -19,9 +19,11 @@
         <!-- Intro -->
         <div class="div_intro">
             <p>
-                En esta página web hay una amalgama de tutoriales para la puesta en marcha de un servidor web en un sistema Ubuntu server,
-                que va desde la <strong>instalación</strong> de los diversos programas hasta la <strong>securización</strong> de estos. El grupo se ha organizado
-                haciendo uso de <!-- ¿cómo se llamaba la metodología? -->
+                En esta página web hay una serie de tutoriales para la puesta en marcha de un servidor web en un sistema Ubuntu Server,
+                que va desde la <strong>instalación</strong> de los diversos programas (SSH, FTP, Apache2, MySQL, Soporte para PHP) hasta la <strong>securización</strong>
+                de estos. El grupo se ha organizado haciendo uso de las metedologías ágiles desde la web de <a href="https://tree.taiga.io/" target="_blank"><strong>TAIGA</strong></a>
+                donde se ha creado un Scrum con diferentes sprints con sus respectivas tareas a realizar. Además, se ha utilizado GitHub para el control de versiones de
+                esta página web.
             </p>
             <br>
             <h3>
@@ -32,13 +34,13 @@
                     <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">
                         <img src="/Recursos/LOGOS/Virtualbox_logo.png" alt="logo de virtual box" width="190">
                     </a>
-                    <p>Virtual Box</p>
+                    <p style="text-align: center;">Virtual Box</p>
                 </div>
                 <div class="ubuntu_logo">
                     <a href="https://ubuntu.com/download/server" target="_blank">
-                        <img src="/Recursos/LOGOS/ubuntu-logo.png" alt="logo de ubuntu" width="170"/>
+                        <img src="/Recursos/LOGOS/ubuntu-logo.png" alt="logo de ubuntu" width="170">
                     </a>
-                    <p style="margin-top: 17px;">
+                    <p style="margin-top: 17px; text-align: center;">
                         Ubuntu server
                     </p>
                 </div>
@@ -339,7 +341,7 @@
                 </p>
                 <img src="/Recursos/MySQL/estimated_strength.png" alt="nivel de seguridad de la contraseña" width="750">
                 <p>
-                    Establezcamos conexión con el servidor de MySQL como root user de la base de datos administrativa, lo que se infiere del uso uso cuando se ejecuta este comando 
+                    Establezcamos conexión con el servidor de MySQL como root user de la base de datos administrativa, lo que se infiere del uso cuando se ejecuta este comando 
                     <strong>“sudo mysql”</strong>. Observe que no nos pide la contraseña que hemos introducido pues al usar <strong>“sudo”</strong> estamos haciendo 
                     que MySQL se ejecute ya con esos privilegios.
                 </p>
@@ -469,11 +471,11 @@
                     Seguiremos, ahora, generando nuevas claves <strong>ECDSA</strong> y <strong>ED25519</strong> tendremos que utilizar los siguientes comandos:
                     <strong>“ssh-keygen -f /etc/ssh/ssh_host_ecdsa_key -t ecdsa -b 521”</strong>
                 </p>
-                <img src="/Recursos/SECURIZAR SSH/clave_ecdsa.png" alt="clave ecdsa">
+                <img src="/Recursos/SECURIZAR%20SSH/clave_ecdsa.png" alt="clave ecdsa">
                 <p>
                     <strong>“ssh-keygen -f /etc/ssh/ssh_host_ed25519_key -t ed25519”</strong>
                 </p>
-                <img src="/Recursos/SECURIZAR SSH/clave_ed25519.png" alt="clave ed25519">
+                <img src="/Recursos/SECURIZAR%20SSH/clave_ed25519.png" alt="clave ed25519">
                 <p>
                     Existen, además, diferentes métodos de autenticación disponibles en el servidor. Existen dos métodos principalmente: usuario y contraseña 
                     y también claves criptográficas. No obstante, si queremos dotar al sistema de una seguridad adicional, podemos combinar estas autenticaciones 
@@ -505,47 +507,43 @@
                     Es buena práctica hacer una <strong style="color: black;">copia de seguridad</strong> de la configuración original, por si acaso, no vaya a ser que 
                     tengamos una desgracia. Para ello, hacemos uso del comando <strong>“sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.original”</strong>.
                 </p>
-                <img src="/Recursos/SECURIZAR FTP/copia_seguridad_ftpconfig.png" alt="copia de seguridad conf ftp">
+                <img src="/Recursos/SECURIZAR%20FTP/copia_seguridad_ftpconfig.png" alt="copia de seguridad conf ftp">
                 <p>
                     Hecha la copia de seguridad, podemos proseguir con nuestra tarea. El siguiente paso es habilitar los puertos para el tráfico FTP desde el firewall. 
                     Primero debemos comprobar su estado haciendo uso del comando <strong>“sudo ufw status”</strong>. Aquí puede ocurrir una cosa y es que aparezca su
                     estatus como inactivo, para activarlo usamos el siguiente comando: <strong>“sudo ufw enable”</strong>.
                 </p>
-                <img src="Recursos/SECURIZAR FTP/ftp_inactive_active.png" alt="status ufw">
-                <p>
-                    <strong>
-                        <ul>
-                            <li>“sudo ufw allow 20/tcp”</li>
-                            <li>“sudo ufw allow 21/tcp"</li>
-                            <li>“sudo ufw allow 22/tcp”</li>
-                            <li>“sudo ufw allow 990/tcp”</li>
-                            <li>“sudo ufw allow 42069/tcp” (nuestro puerto establecido)</li>
-                            <li>“sudo ufw allow 40000:50000/tcp”</li>
-                        </ul>
-                    </strong>
-                </p>
+                <img src="/Recursos/SECURIZAR%20FTP/ftp_inactive_active.png" alt="status ufw">
+                <ul>
+                    <li>“sudo ufw allow 20/tcp”</li>
+                    <li>“sudo ufw allow 21/tcp"</li>
+                    <li>“sudo ufw allow 22/tcp”</li>
+                    <li>“sudo ufw allow 990/tcp”</li>
+                    <li>“sudo ufw allow 42069/tcp” (nuestro puerto establecido)</li>
+                    <li>“sudo ufw allow 40000:50000/tcp”</li>
+                </ul>
                 <p>
                     Si hacemos uso, otra vez, del comando <strong>“sudo ufw status”</strong> veremos como se han añadido los puertos.
                 </p>
-                <img src="/Recursos/SECURIZAR FTP/sudo_ufw_status.png" alt="puertos habilitados">
+                <img src="/Recursos/SECURIZAR%20FTP/sudo_ufw_status.png" alt="puertos habilitados">
                 <p>
                     Ahora, procedemos a editar y configurar el archivo vsftpd.conf, para ello, hacemos uso del comando: 
                     <strong>“sudo nano /etc/vsftpd.conf”</strong>. Se nos abrirá el siguiente editor de texto.
                 </p>
-                <img src="/Recursos/SECURIZAR FTP/vsftpd_conf.png" alt="ventana de configuracion ftp">
+                <img src="/Recursos/SECURIZAR%20FTP/vsftpd_conf.png" alt="ventana de configuracion ftp">
                 <p>
                     Para habilitar la escritura, con las flechas de desplazamiento buscamos la línea 
                     <strong>“#write_enable=YES”</strong> y quitamos el signo <strong>#</strong>.
                 </p>
-                <img src="/Recursos/SECURIZAR FTP/write_enable_YES.png" alt="write_enable=YES">
+                <img src="/Recursos/SECURIZAR%20FTP/write_enable_YES.png" alt="write_enable=YES">
                 <p>
                     También tenemos que asegurarnos que la línea <strong>“local_enable=YES”</strong> esté descomentado.
                 </p>
-                <img src="/Recursos/SECURIZAR FTP/local_enable_YES.png" alt="local_enable=YES">
+                <img src="/Recursos/SECURIZAR%20FTP/local_enable_YES.png" alt="local_enable=YES">
                 <p>
                     Ahora, debemos comprobar que <strong>“chroot_local_user=YES”</strong> esté descomentado también. 
                 </p>
-                <img src="/Recursos/SECURIZAR FTP/chroot_local_user_YES.png" alt="chroot_local_user=YES">
+                <img src="/Recursos/SECURIZAR%20FTP/chroot_local_user_YES.png" alt="chroot_local_user=YES">
                 <p>
                     Con los cambios realizados, apretamos CTRL O para guardar, Enter para aceptar y CTRL X para salir.
                 </p>
@@ -553,7 +551,7 @@
                     Reiniciamos con el comando <strong>“sudo systemctl restart vsftpd”</strong> y verificamos el estatus del FTP usando el comando 
                     <strong>“sudo systemctl status vsftpd”</strong>.
                 </p>
-                <img src="/Recursos/SECURIZAR FTP/reinicio_ftp_y_status.png" alt="reinicio y status de ftp">
+                <img src="/Recursos/SECURIZAR%20FTP/reinicio_ftp_y_status.png" alt="reinicio y status de ftp">
                 <p>
                     Cuando habilitamos esta opción, los usuarios locales del servidor FTP se enjaulan en sus directorios de inicio, lo que significa que solo tendrán acceso 
                     y visibilidad a los archivos y directorios dentro de su propio directorio de inicio asignado. No podrán navegar por el sistema a su antojo. 
@@ -567,13 +565,13 @@
                 <p>
                     A continuación ingresamos los datos que nos solicitan:
                 </p>
-                <img src="/Recursos/SECURIZAR FTP/sudo_openssl_req.png" alt="cifrado">
+                <img src="/Recursos/SECURIZAR%20FTP/sudo_openssl_req.png" alt="cifrado">
                 <p>
                     Volvemos a abrir el archivo de configuración para realizar nuevos cambios en este. Nos iremos al final y comentaremos 
                     (poniendo # al principio) las siguientes dos líneas:
                 </p>
-                <img src="/Recursos/SECURIZAR FTP/rsa_cert_rsa_private.png" alt="rsa cert y rsa private">
-                <img src="/Recursos/SECURIZAR FTP/se_comentan_rsacert_rsa_priv.png" alt="se comenta esas líneas">
+                <img src="/Recursos/SECURIZAR%20FTP/rsa_cert_rsa_private.png" alt="rsa cert y rsa private">
+                <img src="/Recursos/SECURIZAR%20FTP/se_comentan_rsacert_rsa_priv.png" alt="se comenta esas líneas">
                 <p>
                     Una vez estas estén comentadas, agregamos las siguientes líneas:
                 </p>
@@ -586,28 +584,24 @@
                 <p>
                     Y establecemos el valor de <strong>“ssl_enable”</strong> a <strong>“YES”</strong>. La configuración quedaría de la siguiente manera:
                 </p>
-                <img src="/Recursos/SECURIZAR FTP/ssl_enable_YES.png" alt="ssl enable=YES">
+                <img src="/Recursos/SECURIZAR%20FTP/ssl_enable_YES.png" alt="ssl enable=YES">
                 <p>
                     Ahora, para terminar nuestra configuración del servidor FTP, añadiremos debajo de eso, lo siguiente:
                 </p>
-                <p>
-                    <strong>
-                        <ul>
-                            <li>“allow_anon_ssl=NO”</li>
-                            <li>“force_local_data_ssl=YES”</li>
-                            <li>“force_local_logins_ssl=YES”</li>
-                            <li>“ssl_tlsv1=YES”</li>
-                            <li>“require_ssl_reuse=NO”</li>
-                            <li>“ssl_ciphers=HIGH”</li>
-                        </ul>
-                    </strong>
-                </p>
-                <img src="/Recursos/SECURIZAR FTP/configuraciones_varias.png" alt="configuraciones varias">
+                <ul>
+                    <li>“allow_anon_ssl=NO”</li>
+                    <li>“force_local_data_ssl=YES”</li>
+                    <li>“force_local_logins_ssl=YES”</li>
+                    <li>“ssl_tlsv1=YES”</li>
+                    <li>“require_ssl_reuse=NO”</li>
+                    <li>“ssl_ciphers=HIGH”</li>
+                </ul>
+                <img src="/Recursos/SECURIZAR%20FTP/configuraciones_varias.png" alt="configuraciones varias">
                 <p>
                     Guardamos los cambios y cerramos el editor de texto. Luego reiniciamos el servidor usando el comando 
                     <strong>“sudo systemctl restart vsftpd”</strong>.
                 </p>
-                <img src="/Recursos/SECURIZAR FTP/reinicio_ftp.png" alt="comando de reinicio ftp">
+                <img src="/Recursos/SECURIZAR%20FTP/reinicio_ftp.png" alt="comando de reinicio ftp">
                 <p>
                     Luego volveremos a comprobar el estado del servidor FTP para ver si todo funciona correctamente y no hubo un fallo o un contratiempo no deseado.
                 </p>
@@ -659,7 +653,7 @@
                 <p style="color: red; text-align: center;">
                     ¡Procura hacer una copia de seguridad antes de realizar cualquier cambio en dicho archivo!
                 </p>
-                <img src="Recursos/SECURIZAR APACHE2/copia_seguridad_security.conf.png" alt="copia de seguridad del archivo configuracion de seguridad">
+                <img src="/Recursos/SECURIZAR%20APACHE2/copia_seguridad_security.conf.png" alt="copia de seguridad del archivo configuracion de seguridad">
                 <p>
                     Para cambiar esta configuración nos iremos al archivo security.conf en el directorio: 
                     <strong>“/etc/apache2/conf-available/security.conf”</strong> haciendo uso del comando <strong>“sudo nano”</strong> al principio de dicho directorio.
@@ -667,21 +661,21 @@
                 <p>
                     Y debemos añadir la siguiente línea en el apartado que habla de los tokens: <strong>“ServerTokens ProductOnly”</strong>.
                 </p>
-                <img src="/Recursos/SECURIZAR APACHE2/ServerTokens_antes.png" alt="antes del cambio">
-                <img src="/Recursos/SECURIZAR APACHE2/ServerTokens_despues.png" alt="despues del cambio">
+                <img src="/Recursos/SECURIZAR%20APACHE2/ServerTokens_antes.png" alt="antes del cambio">
+                <img src="/Recursos/SECURIZAR%20APACHE2/ServerTokens_despues.png" alt="despues del cambio">
                 <p>
                     Guardamos y salimos para reiniciar el servicio apache2 para que se efectúen dichos cambios.
                 </p>
-                <img src="/Recursos/SECURIZAR APACHE2/apache2_restart.png" alt="restart del servicio apache2">
+                <img src="/Recursos/SECURIZAR%20APACHE2/apache2_restart.png" alt="restart del servicio apache2">
                 <p>
                     Volvemos a verificar su estado para ver que no ha habido ningún error:
                 </p>
-                <img src="/Recursos/SECURIZAR APACHE2/apache2_status.png" alt="status apache2">
+                <img src="/Recursos/SECURIZAR%20APACHE2/apache2_status.png" alt="status apache2">
                 <p>
                     Lo siguiente que haremos será ir al archivo <strong>“apache2.conf”</strong> y no permitir que el servidor apache lea cualquier archivo .htaccess con 
                     <strong>“AllowOverride None”</strong>. Esto evitará que un posible atacante cuele un archivo malicioso en el tráfico del servidor.
                 </p>
-                <img src="/Recursos/SECURIZAR APACHE2/AllowOverride_none.png" alt="AllowOverride none">
+                <img src="/Recursos/SECURIZAR%20APACHE2/AllowOverride_none.png" alt="AllowOverride none">
                 <p>
                     En el mismo editor, al final de este, añadiremos la siguiente línea:
                     <strong>“RequestReadTimeout header=10-20,MinRate=500 body=20,MinRate=500”</strong>
@@ -690,16 +684,16 @@
                     Esto hará que el servidor web Apache cierre la conexión si el cliente tarda más de 10 segundos en enviar sus encabezados HTTP, o tarda más de 20 segundos a una velocidad de 500 bytes/s. 
                     sEste comando es muy beneficioso pues evitará ataques de denegación de servicio (DDoS).
                 </p>
-                <img src="/Recursos/SECURIZAR APACHE2/RequestRead.png" alt="bloqueo DDoS">
+                <img src="/Recursos/SECURIZAR%20APACHE2/RequestRead.png" alt="bloqueo DDoS">
                 <p>
                     Para efectuar todos los cambios, guardamos y reiniciamos el servidor apache. Para comprobar que todo funciona, comprobamos el estado.
                 </p>
-                <img src="/Recursos/SECURIZAR APACHE2/apache2_status_cambios.png" alt="status apache2">
+                <img src="/Recursos/SECURIZAR%20APACHE2/apache2_status_cambios.png" alt="status apache2">
                 <p>
                     Por último, y no menos importante, vamos a añadir los certificados SSL/TLS con el siguiente comando 
                     <strong>“sudo a2enmod headers”</strong>.
                 </p>
-                <img src="/Recursos/SECURIZAR APACHE2/a2enmod.png" alt="a2enmod">
+                <img src="/Recursos/SECURIZAR%20APACHE2/a2enmod.png" alt="a2enmod">
                 <p>
                     Ese mensaje quiere decir que ya estaban habilitados de antes y que ya no hace falta volver a hacerlo. En todo caso, y si no lo has habilitado con anterioridad, 
                     te solicitará reiniciar el servicio apache2 (<strong>“sudo systemctl restart apache2”</strong>) y se te habilitaran.
