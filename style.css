@@ -204,3 +204,7 @@ img[alt="logo php"] {
     width: 175px !important;
     height: 155px !important;
 }
+
+footer {
+    background-color: var(--dorado);
+}

@@ -164,7 +164,7 @@
                 <p>
                     Ahora, daremos enter en <strong>“create software RAID (md)”</strong>
                 </p>
-                <img src="Recursos/RAID%201/software_raid1.png" alt="">
+                <img src="Recursos/RAID%201/software_raid1.png" alt="software raid1">
                 <p>
                     Le dejaremos el mismo nombre (md0). RAID Level será el nivel 1, tal y como nos pide el ejercicio, y activamos los dos dispositivos
                     (los dos discos duros).
@@ -177,13 +177,13 @@
                     Para ponerlo a punto y listo, debemos hacer que en esta se monte y funcione como el <strong>“/home”</strong> del sistema.
                      Para ello, seleccionamos la partición RAID 1 y luego le daremos enter a <strong>“add GPT Partition”</strong>.
                 </p>
-                <img src="Recursos/RAID%201/md0_partition.png" alt="">
+                <img src="Recursos/RAID%201/md0_partition.png" alt="md0 particion">
                 <p>
                     Cambiaremos el mount y lo pondremos a <strong>“/home”</strong>.
                 </p>
-                <img src="Recursos/RAID%201/directorio_home.png" alt="">
+                <img src="Recursos/RAID%201/directorio_home.png" alt="directorio home">
                 <br>
-                <img src="Recursos/RAID%201/resumen_montaje.png" alt="">
+                <img src="Recursos/RAID%201/resumen_montaje.png" alt="resumen del montaje">
                 <p>
                     En este resumen podremos ver ambas particiones. Donde hemos configurado el RAID 1 y la partición para el disco local.
                 </p>
@@ -191,7 +191,7 @@
                     Al darle a aceptar nos saltará este mensaje de advertencia donde nos dirá que se van a formatear los  diferentes discos.
                     Le daremos a <strong>“continuar”</strong>.
                 </p>
-                <img src="Recursos/RAID%201/formateo_discos.png" alt="">
+                <img src="Recursos/RAID%201/formateo_discos.png" alt="formateo de discos">
             </div>
         </section>
         <!-- Servidor SSH -->
@@ -318,6 +318,31 @@
                 <h4>
                     Nuestra web alojada en el servidor apache2
                 </h4>
+                <div class="nuestra_web">
+                    <p>
+                        Abrimos el programa filezilla en la máquina cliente conectada al ssh de nuestro servidor ubuntu. Arrastramos la carpeta que contiene la página web al directorio 
+                        <strong>“/home/[nuesto_nombre]”</strong> de nuestra máquina.
+                    </p>
+                    <img src="Recursos/MI%20WEB%20APACHE2/transferir_datos.png" alt="transfiere datos">
+                    <p>
+                        Si todo funciona correctamente, nos aparecerá en la pestaña de “transferencias satisfactorias” todos los archivos dentro de la carpeta,
+                        además de este mensaje:
+                    </p>
+                    <img src="Recursos/MI%20WEB%20APACHE2/transferencia_completada.png" alt="mensaje pop-up de transferencia completada">
+                    <p>
+                        Ahora, es momento de cambiar la dirección predeterminada donde se encuentra el index.html que vimos anteriormente. 
+                        Para ello, haremos uso del código <strong>“sudo nano /etc/apache2/apache2.conf”</strong>.
+                    </p>
+                    <img src="Recursos/MI%20WEB%20APACHE2/apache2_conf_directorio.png" alt="apache2.conf a cambiar">
+                    <p>
+                        Guardamos la configuración y reiniciamos el apache2.
+                    </p>
+                    <img src="Recursos/MI%20WEB%20APACHE2/restart_apache2.png" alt="comando para reiniciar apache2">
+                    <p>
+                        Volvemos a poner la IP del servidor en el navegador de nuestra máquina cliente y veremos como muestra nuestra página web.
+                    </p>
+                    <img src="Recursos/MI WEB APACHE2/web_funcional.png" alt="web funcional">
+                </div>
             </div>
         </section>
 
@@ -722,5 +747,10 @@
                 </p>
             </div>
         </section>
+        <footer class="pie">
+            <p>
+                Copyright del grupo 3, no acepte copias.
+            </p>
+        </footer>
     </body>
 </html>
