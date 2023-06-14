@@ -23,25 +23,42 @@
                 que va desde la <strong>instalación</strong> de los diversos programas (SSH, FTP, Apache2, MySQL, Soporte para PHP) hasta la <strong>securización</strong>
                 de estos. El grupo se ha organizado haciendo uso de las metedologías ágiles desde la web de <a href="https://tree.taiga.io/" target="_blank"><strong>TAIGA</strong></a>
                 donde se ha creado un Scrum con diferentes sprints con sus respectivas tareas a realizar. Además, se ha utilizado GitHub para el control de versiones de
-                esta página web.
+                esta nuestra página web tutorial.
             </p>
+            <h3>
+                Herramientas utilizadas para el desarrollo de la actividad:
+            </h3>
+            <div class="contenedor_logos">
+                <div class="taiga_icono">
+                    <a href="https://tree.taiga.io/" target="_blank">
+                        <img src="Recursos/LOGOS/taiga_logo.png" alt="logo de taiga io">
+                    </a>
+                </div>
+                <div class="github_logo">
+                    <a href="https://github.com/Aco097/TrabajoUT7" target="_blank">
+                        <img src="Recursos/LOGOS/github_icono.png" alt="logo de github">
+                    </a>
+                </div>
+            </div>
             <br>
             <h3>
-                Programas necesarios:
+                Programas utilizados:
             </h3>
             <div class="contenedor_logos">
                 <div class="virtualbox_logo">
                     <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">
+                        <img src="Recursos/LOGOS/Virtualbox_logo.png" alt="logo de virtual box">
                     </a>
-                    <p style="text-align: center;">Virtual Box</p>
                 </div>
                 <div class="ubuntu_logo">
                     <a href="https://ubuntu.com/download/server" target="_blank">
-                        <img src="Recursos/LOGOS/ubuntu-logo.png" alt="logo de ubuntu" width="170">
+                        <img src="Recursos/LOGOS/ubuntu-logo.png" alt="logo de ubuntu">
                     </a>
-                    <p style="margin-top: 17px; text-align: center;">
-                        Ubuntu server
-                    </p>
+                </div>
+                <div class="filezilla_logo">
+                    <a href="https://filezilla-project.org/" target="_blank">
+                        <img src="Recursos/LOGOS/filezilla_logo.png" alt="logo de filezilla">
+                    </a>
                 </div>
             </div>
         </div>
@@ -104,7 +121,7 @@
                 <p>
                     Para poder realizar esto en nuestro servidor ubuntu, primero debemos crear el segundo disco duro en la misma máquina virtual:
                 </p>
-                <img src="Recursos/RAID%201/añadir_discos_duros.png" alt="añadir discos duros">
+                <img src="Recursos/RAID%201/añadir_discos_duros.png" alt="añadir discos duros" width="500">
                 <p>
                     Nos dirigimos a la configuración de la máquina y nos dirigimos a la ventana de “almacenamiento” y hacemos clic en “añadir disco duro”.
                 </p>
@@ -116,14 +133,14 @@
                     Creamos dicho como siempre hemos estado haciendo en las demás actividades. Le daremos la misma capacidad (25 GB)
                     y será un disco duro dinámico; también crearemos otro de 10 GB. En la siguiente imagen veremos todos los discos duros.
                 </p>
-                <img src="Recursos/RAID%201/discos_duros_creados.png" alt="imagen donde se ven esos discos duros creados">
+                <img src="Recursos/RAID%201/discos_duros_creados.png" alt="imagen donde se ven esos discos duros creados" width="500">
                 <p>
                     Con ambos discos duros listos, procederemos a instalar el servidor y configurar dicha partición como RAID 1.
                 </p>
                 <p>
                     Tras avanzar entre las configuraciones previas, nos detendremos concretamente en este apartado.
                 </p>
-                <img src="Recursos/RAID%201/custom_storage_layout.png" alt="seleccion del disco duro">
+                <img src="Recursos/RAID%201/custom_storage_layout.png" alt="seleccion del disco duro" width="500">
                 <p>
                     Aquí, seleccionamos <strong>“custom storage layout”</strong> donde podremos crear particiones,
                     seleccionar el disco donde queramos instalar el sistema operativo y, lo que nos importa, configurar una partición RAID 1.
@@ -182,6 +199,7 @@
             <h3>
                 Servidor SSH
             </h3>
+            <img src="Recursos/LOGOS/ssh_logo.png" alt="logo ssh">
             <div class="tutorial_ssh">
                 <p>
                     Durante la instalación del servidor, Linux Ubuntu nos facilita la instalación por defecto de un servidor SSH. 
@@ -215,6 +233,7 @@
             <h3>
                 Servidor FTP
             </h3>
+            <img src="Recursos/LOGOS/ftp-icon.png" alt="logo ftp">
             <div class="tutorial_ftp">
                 <p>
                     Para instalar el servidor FTP hacemos uso del comando <strong>“sudo apt install vsftpd”</strong>. 
@@ -225,12 +244,13 @@
                 </p>
                 <img src="Recursos/SERVIDOR%20FTP/status_ftp_instalacion.png" alt="">
                 <p>
-                    Tras hacer seguro el servidor FTP  <a href="#securizar_ftp">(click para ir al tutorial)</a> vamos a acceder a este de la siguiente manera. 
+                    Tras hacer seguro el servidor FTP  <a href="#securizar_ftp" target="_blank">(click para ir al tutorial)</a> vamos a acceder a este de la siguiente manera. 
                     Primero tenemos que ver la ip de nuestro servidor, para ello usaremos el comando <strong>“ip a”</strong> que nos mostrará la información que deseamos.
                 </p>
                 <img src="Recursos/SERVIDOR%20FTP/ftp_ip_a.png" alt="ftp ip">
                 <p>
-                    Esta ip la usaremos para conectarnos al servidor FTP desde el programa FileZilla. Una vez el programa abierto, le daremos al icono de 
+                    Esta ip la usaremos para conectarnos al servidor FTP desde el programa FileZilla 
+                    <a href="https://filezilla-project.org/">(haz click aquí para descargar FileZilla)</a>. Una vez el programa abierto, le daremos al icono de 
                     <strong>“Abrir el Gestor de Sitios”</strong>.
                 </p>
                 <img src="Recursos/SERVIDOR%20FTP/filezilla_gestor.png" alt="icono de gestor de sitio del filezilla">
@@ -257,6 +277,7 @@
             <h3>
                 Servidor web Apache2
             </h3>
+            <img src="Recursos/LOGOS/apache_logo.png" alt="logo apache">
             <div class="tutorial_apache2">
                 <p>
                     Para instalar el servidor web Apache haremos uso del comando <strong>“sudo apt install apache2”</strong>.
@@ -305,6 +326,7 @@
             <h3>
                 Soporte MySQL
             </h3>
+            <img src="Recursos/LOGOS/mysql_logo_icon_169941.png" alt="logo mysql">
             <div class="tutorial_mysql">
                 <p>
                     Con un servidor web funcional, deberá instalar un sistema de base de datos para poder almacenar y gestionar los datos. 
@@ -357,6 +379,7 @@
             <h3>
                 Soporte PHP
             </h3>
+            <img src="Recursos/LOGOS/logo_php.png" alt="logo php">
             <div class="tutorial_php">
                 <p>
                     Apache presenta el contenido, MySQL almacena y gestiona los datos. 
